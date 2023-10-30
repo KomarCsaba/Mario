@@ -13,3 +13,4 @@ function squareCreate(width, height) {
 }
    
 export default squareCreate;
+
