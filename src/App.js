@@ -1,8 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 
-function Square({ value, onSquareClick }) {
+function Square({ value, onSquareClick }) { //létrehoz egy buttont amibe bele van írva a button
   return (
     <button className="square" onClick={onSquareClick}>
       {value}
@@ -20,7 +19,7 @@ function App() {
       <Square value = {"valami"} onSquareClick={addEventListener("click", onClick())}/>
 
       
-
+      
     </div>
   );
 }
