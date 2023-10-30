@@ -7,9 +7,7 @@ function squareCreate(width, height) {
 
     const pg = document.createElement("p");
     elem.appendChild(pg);
-    return (
-        elem
-    )
+    return elem;
 }
    
 export default squareCreate;
