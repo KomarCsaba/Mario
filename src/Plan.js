@@ -11,5 +11,5 @@ class Plan{
         return elem;
     }
 }
-   
+
 export default Plan;
