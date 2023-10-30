@@ -1,4 +1,5 @@
 import './Plan.css';
+import React from 'react';
 
 function squareCreate(width, height) {
     const elem = document.createElement("div");
@@ -7,6 +8,7 @@ function squareCreate(width, height) {
 
     const pg = document.createElement("p");
     elem.appendChild(pg);
+
     return elem;
 }
    
