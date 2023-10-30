@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <div class="square">
-        <p class="text">Square text</p>
+        <p class="text">Square</p>
       </div>
     </div>
   );
