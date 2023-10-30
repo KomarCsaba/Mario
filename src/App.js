@@ -10,9 +10,14 @@ function Square({ value, onSquareClick }) {
   );
 }
 
+function onClick(){
+  return;
+}
+
 function App() {
   return (
     <div className="App">
+      <Square value = {"valami"} onSquareClick={addEventListener("click", onClick())}/>
 
       
 
