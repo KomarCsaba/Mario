@@ -11,15 +11,17 @@ function App() {
       </div>
 
       <div className='component'>
-        <Plan width="50px" height="50px" className="component"/> 
+        <Plan width="50px" height="50px"/> 
       </div>
       <div className='component'>
-        <Plan width="50px" height="80px" className="component"/>
+        <Plan width="50px" height="80px"/>
       </div>
       <div className='component'>
-        <Plan width="50px" height="80px" className="component"/>
+        <Plan width="50px" height="80px"/>
       </div>
-    
+      <div className='floatingSquare'>
+        <Plan width="200px" height="50px"/>
+      </div>
       
 
     </div>
