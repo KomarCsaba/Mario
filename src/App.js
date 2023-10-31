@@ -5,10 +5,22 @@ import Player from './Player';
 
 function App() {
   return ( 
-    <div className="App"> {/**/}
-      <Plan width="50px" height="50px"/> 
-      <Plan width="50px" height="80px"/>
-
+    <div className="App">
+      <div className='component'>
+        <Plan width="50px" height="50px" className="component"/> 
+      </div>
+      <div className='component'>
+        <Plan width="50px" height="80px" className="component"/>
+      </div>
+      <div className='component'>
+        <Plan width="50px" height="80px" className="component"/>
+      </div>
+      <div className='component'>
+        <Plan width="50px" height="80px" className="component"/>
+      </div>
+      <div className='component'>
+        <Plan width="50px" height="80px" className="component"/>
+      </div>
     </div>
   ); 
 }
