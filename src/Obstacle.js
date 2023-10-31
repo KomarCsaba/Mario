@@ -1,5 +1,5 @@
-import './Plan.css';
-import React, { Component } from 'react';
+import './Obstacle.css';
+import React, {Component} from 'react';
 
 class Plan extends Component{
     render() {
