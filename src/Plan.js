@@ -2,9 +2,13 @@ import './Plan.css';
 import React, { Component } from 'react';
 
 class Plan extends Component{
-    render(width, height) {
+    render({width, height}) {
+        const divStyle = {
+            width: width,
+            height: height
+        };
         return (
-            <div>
+            <div style={divStyle} className='square'>
                 <p>Square</p>
             </div>
         );
