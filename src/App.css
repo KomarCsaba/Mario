@@ -4,15 +4,19 @@
 }
 
 .component {
+  margin-right: 200px;
+}
+
+.componentPlayer {
   margin-right: 100px;
 }
 
 .component:first-child {
-  padding-left: 100px;
+  padding-left: 200px;
 }
 
 .component:last-child {
-  margin-right: 0;
+  margin-right: 0px;
 }
 
 body{

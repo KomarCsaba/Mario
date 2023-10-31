@@ -1,5 +1,6 @@
 .ellipse {
-    clip-path: ellipse(20px 50px);
+    clip-path: ellipse(50px 100px);
+    background-color: blueviolet;
 }
 
 
