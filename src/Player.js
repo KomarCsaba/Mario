@@ -1,7 +1,7 @@
 import './Player.css';
 import React, {Component} from 'react';
 
-class Player extends Comment {
+class Player extends Component{
     render() {
         return (
             <div className='container'>   
