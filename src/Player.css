@@ -2,8 +2,9 @@
     clip-path: ellipse(20px 50px);
 }
 
-.container {
-    display: flex;
+
+.container { 
+    display: flex; 
     flex-direction: column;
     height: 100vh;
 }

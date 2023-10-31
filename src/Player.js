@@ -8,11 +8,13 @@ class Player extends Comment {
                 <div className="content">
                     
                 </div>
-                <div style={divStyle} className="ellipse">
+                <div className="ellipse">
                     <p>Ellipse</p>
                 </div>
             </div>
         );
     }
 }
+
+export default Player;
 
