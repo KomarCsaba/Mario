@@ -2,7 +2,8 @@ import './Plan.css';
 import React, { Component } from 'react';
 
 class Plan extends Component{
-    render({width, height}) {
+    render() {
+        const {width, height} = this.props;
         const divStyle = {
             width: width,
             height: height
