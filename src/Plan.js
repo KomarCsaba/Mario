@@ -1,14 +1,13 @@
 import './Plan.css';
-import React from 'react';
+import React, { Component } from 'react';
 
-class Plan{
-    squareCreate(width, height) {
-        const elem = document.createElement("div");
-        elem.style.width = width;
-        elem.style.height = height;
-        const pg = document.createElement("p");
-        elem.appendChild(pg);
-        return elem;
+class Plan extends Component{
+    render(width, height) {
+        return (
+            <div>
+                <p>Square</p>
+            </div>
+        );
     }
 }
 
