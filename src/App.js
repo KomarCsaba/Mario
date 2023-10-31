@@ -8,6 +8,7 @@ function App() {
     <div className="App"> {/**/}
       <Plan width="50px" height="50px"/> 
       <Plan width="50px" height="80px"/>
+      <Player/>
 
     </div>
   ); 
