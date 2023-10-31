@@ -5,7 +5,7 @@ import Player from './Player';
 
 function App() {
   return ( 
-    <div className="App"> {/**/}
+    <div className="App">
       <div className='componentPlayer'>
         <Player/>
       </div>
@@ -22,8 +22,6 @@ function App() {
       <div className='floatingSquare'>
         <Plan width="200px" height="50px"/>
       </div>
-      
-
     </div>
   ); 
 }
