@@ -9,11 +9,11 @@ class Plan extends Component{
             height: height
         };
         return (
-            <div className='container'>
+            <div className='container'>   
                 <div className="content">
                     
                 </div>
-                <div style={divStyle} className="square bottom-div">
+                <div style={divStyle} className="square">
                     <p>Square</p>
                 </div>
             </div>
