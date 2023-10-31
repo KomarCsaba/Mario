@@ -13,7 +13,7 @@ class Plan extends Component{
                 <div className="content">
                     
                 </div>
-                <div style={divStyle} className="square bottom-div">
+                <div style={divStyle} className="square">
                     <p>Square</p>
                 </div>
             </div>
