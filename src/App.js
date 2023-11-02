@@ -8,7 +8,7 @@ function App() {
     return ( 
       <div className="App">
   
-        <div className='component'>
+        <div className='component moving-div'>
           <Plan id={1}/>
         </div>
         
