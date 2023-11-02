@@ -15,10 +15,6 @@
   padding-left: 200px;
 }
 
-.floatingSquare {
-  margin-top: -80px;
-}
-
 .component:last-child {
   margin-right: 0px;
 }
