@@ -1,7 +1,7 @@
 .ellipse {
-    clip-path: ellipse(50px 100px);
+    clip-path: ellipse(50px 70px);
     background-color: blueviolet;
-    position: relative; left: 80px;
+    /*position: relative; bottom: 0px;*/
 }
 
 

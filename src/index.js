@@ -4,11 +4,20 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Player from './Player';
+import './Player.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Player />
+    <div className='container'>
+      <div className='content'>
+
+      </div>
+      <div className='ellipse'>
+        <Player />
+      </div>
+    </div>
+    
     <App />
   </React.StrictMode>
 );
