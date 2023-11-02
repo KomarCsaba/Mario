@@ -9,16 +9,14 @@ import './Player.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
   root.render(
   <React.StrictMode>
-    <div className='container'>
-      <div className='content'>
-
-      </div>
-      <div className='ellipse moving-div'>
+    <div className="App">  
+      <div className="componentPlayer moving-div">
         <Player />
       </div>
+      <div className='component'>
+        <App/>
+      </div> 
     </div>
-    
-    <App />
   </React.StrictMode>
 );
 

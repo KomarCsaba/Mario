@@ -7,8 +7,32 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.component {
+  margin-right: 200px;
+}
+
+.App {
+  text-align: center;
+  display: flex;
+}
+
 .componentPlayer {
   margin-right: 20px;
+}
+
+.container { 
+  display: flex; 
+  flex-direction: column;
+  height: 100vh;
+}
+
+.content {
+  flex: 1;
+}
+
+.ellipse {
+  clip-path: ellipse(50px 70px);
+  background-color: blueviolet;
 }
 
 code {
