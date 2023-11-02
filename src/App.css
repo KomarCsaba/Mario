@@ -22,3 +22,17 @@
 body{
   background-color: beige;
 }
+
+.moving-div {
+  position: absolute;
+  animation: moveLeft 5s linear infinite;
+}
+
+@keyframes moveLeft {
+  0% {
+      left: 0; /* Starting position */
+  }
+  100% {
+      left: 100%; /* Ending position (move to the right end) */
+  }
+}
