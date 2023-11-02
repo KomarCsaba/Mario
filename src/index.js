@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
       <div className='content'>
 
       </div>
-      <div className='ellipse moving-div'>
+      <div className='ellipse'>
         <Player />
       </div>
     </div>
