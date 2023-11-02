@@ -11,7 +11,6 @@ function App() {
     let random2 = Math.floor(Math.random() * 3) + 1;
     let random3 = Math.floor(Math.random() * 3) + 1;
     return ( 
-  
       <div className="App">
   
         <div className='component'>
@@ -29,7 +28,6 @@ function App() {
       </div>
     ); 
   }
-  
 }
 
 export default App;
