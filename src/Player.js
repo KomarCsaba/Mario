@@ -9,7 +9,7 @@ class Player extends Component{
                     
                 </div>
                 <div className="ellipse">
-                    <p>Ellipse</p>
+                    <p>Player</p>
                 </div>
             </div>
         );
