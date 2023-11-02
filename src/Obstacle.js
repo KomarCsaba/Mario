@@ -53,8 +53,6 @@ class Plan extends Component{
                 </div>
             )
         }
-
-        
     }
 }
 
