@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   display: flex;
+  /*overflow: hidden;*/
 }
 
 .component {
@@ -24,5 +25,10 @@
 }
 
 body{
-  background-color: beige;
+  background-color: green;
+}
+
+.component {
+  /* background-color: #3498db; */
+  transform: translateX(-100px);
 }
