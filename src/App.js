@@ -12,7 +12,6 @@ function App() {
     let random3 = Math.floor(Math.random() * 3) + 1;
     return ( 
       <div className="App">
-  
         <div className='component'>
           <Plan id={random1}/>
         </div>
@@ -24,7 +23,6 @@ function App() {
         <div className='component'>
           <Plan id={random3}/>
         </div>
-        
       </div>
     ); 
   }
