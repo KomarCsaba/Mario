@@ -15,9 +15,9 @@ class Plan extends Component{
         const divStyle3 = {
             width: "150px",
             height: "50px"
-        }
+        };
 
-        if (id == 1) {
+        if (id === 1) {
             return (
                 <div className='container'>   
                     <div className="content">
@@ -29,7 +29,7 @@ class Plan extends Component{
                 </div>
             );
         }
-        else if (id == 2) {
+        else if (id === 2) {
             return (
                 <div className='container'>
                     <div className='content'>
@@ -41,7 +41,7 @@ class Plan extends Component{
                 </div>
             )
         }
-        else if (id == 3) {
+        else if (id === 3) {
             return (
                 <div className='container'>
                     <div className='content'>
