@@ -6,10 +6,9 @@ import Player from './Player';
 function App() {
   return ( 
     <div className="App">
-      <div className='componentPlayer'>
+      <div className='componentPlayer moving-div'>
         <Player/>
       </div>
-
       <div className='component'>
         <Plan width="50px" height="50px"/> 
       </div>
