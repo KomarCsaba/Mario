@@ -8,7 +8,6 @@ function App() {
 
   for (let index = 1; index > 0; index++) {
     return ( 
-  
       <div className="App">
         
         <div className='componentPlayer'>
@@ -30,7 +29,6 @@ function App() {
       </div>
     ); 
   }
-  
 }
 
 export default App;
