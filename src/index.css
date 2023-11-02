@@ -15,3 +15,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.moving-div {
+  position: absolute;
+  animation: moveLeft 5s linear infinite;
+}
+
+@keyframes moveLeft {
+  0% {
+      right: 0; /* Starting position */
+  }
+  100% {
+      right: 100%; /* Ending position (move to the right end) */
+  }
+}

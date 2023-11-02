@@ -1,11 +1,7 @@
 import './App.css';
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import Plan from "./Obstacle";
-
-
-
 function App() {
-
   for (let index = 1; index > 0; index++) {
     let random1 = Math.floor(Math.random() * 3) + 1;
     let random2 = Math.floor(Math.random() * 3) + 1;

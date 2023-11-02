@@ -7,13 +7,13 @@ import Player from './Player';
 import './Player.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+  root.render(
   <React.StrictMode>
     <div className='container'>
       <div className='content'>
 
       </div>
-      <div className='ellipse'>
+      <div className='ellipse moving-div'>
         <Player />
       </div>
     </div>
