@@ -3,26 +3,34 @@ import React from 'react';
 import Plan from "./Obstacle";
 import Player from './Player';
 
+
 function App() {
-  return ( 
-    <div className="App">
-      <div className='componentPlayer moving-div'>
-        <Player/>
+
+  for (let index = 1; index > 0; index++) {
+    return ( 
+  
+      <div className="App">
+        
+        <div className='componentPlayer'>
+          <Player/>
+        </div>
+  
+        <div className='component'>
+          <Plan id={1}/>
+        </div>
+  
+        <div className='component'>
+          <Plan id={2}/>
+        </div>
+  
+        <div className='component'>
+          <Plan id={3}/>
+        </div>
+        
       </div>
-      <div className='component'>
-        <Plan width="50px" height="50px"/> 
-      </div>
-      <div className='component'>
-        <Plan width="50px" height="80px"/>
-      </div>
-      <div className='component'>
-        <Plan width="50px" height="80px"/>
-      </div>
-      <div className='floatingSquare'>
-        <Plan width="200px" height="50px"/>
-      </div>
-    </div>
-  ); 
+    ); 
+  }
+  
 }
 
 export default App;

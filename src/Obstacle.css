@@ -12,3 +12,9 @@
 .content {
   flex: 1;
 }
+
+.floatingSquare {
+  position: relative; bottom: 80px;
+  background-color: red;
+}
+
