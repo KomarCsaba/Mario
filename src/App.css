@@ -4,7 +4,7 @@
 }
 
 .component {
-  margin-right: 200px;
+  margin-right: 300px;
 }
 
 .component:first-child {
@@ -19,16 +19,3 @@ body{
   background-color: beige;
 }
 
-/* .moving-div {
-  position: absolute;
-  animation: moveLeft 10s linear infinite;
-} */
-
-@keyframes moveLeft {
-  0% {
-      right: 0; /* Starting position */
-  }
-  100% {
-      right: 100%; /* Ending position (move to the right end) */
-  }
-}

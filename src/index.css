@@ -36,13 +36,12 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 .moving-div {
   position: absolute;
-  animation: moveLeft 12s linear infinite;
+  animation: moveLeft 30s linear infinite;
 }
 
 @keyframes moveLeft {
