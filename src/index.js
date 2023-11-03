@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
   <React.StrictMode>
     <div className="page">
       <div className="content">
-        
+      <h1>Score:</h1>
       </div>
       <div className="bottom-section">
         <div className="fixed-component">
