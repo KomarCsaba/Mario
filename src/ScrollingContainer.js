@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './ScrollingContainer.css';
-import Plan from "./Obstacle";
+import MovingComponent from './MovingComponent';
+import Plan from './Obstacle';
 
 class ScrollingContainer extends Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class ScrollingContainer extends Component {
   }
 
   componentDidMount() {
-    this.scrollInterval = setInterval(this.moveComponents, 16); // Adjust the interval for your desired animation speed
+    this.scrollInterval = setInterval(this.moveComponents, 10); // Adjust the interval for your desired animation speed
   }
 
   componentWillUnmount() {
@@ -28,9 +29,20 @@ class ScrollingContainer extends Component {
     const { scrollPos } = this.state;
 
     return (
-      <div className="scroll-container" style={{ transform: `translateX(${-scrollPos}px)` }}>
-        <Plan />
-      </div>
+        <div>
+            <div className="scroll-container" style={{ transform: `translateX(${-scrollPos}px)` }}>
+                <MovingComponent />
+            </div>
+            <div className="scroll-container" style={{ transform: `translateX(${-scrollPos}px)` }}>
+                <MovingComponent />
+            </div>
+            <div className="scroll-container" style={{ transform: `translateX(${-scrollPos}px)` }}>
+                <MovingComponent />
+            </div>
+            <div className="scroll-container" style={{ transform: `translateX(${-scrollPos}px)` }}>
+                <Plan/>
+            </div>
+        </div>
     );
   }
 }

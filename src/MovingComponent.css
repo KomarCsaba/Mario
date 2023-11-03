@@ -1,0 +1,14 @@
+.element {
+    position: absolute; /* Remove the element from the document flow */
+    right: 0; /* Set the starting position to the right side of the page */
+    width: 50px;
+    height: 50px;
+    background-color: #3498db;
+    transition: transform 10s ease; /* Apply a 1-second transition for the transform property */
+  }
+  
+  /* Add a class to trigger the animation */
+.element.animate {
+    transform: translateX(-500px); /* Move the element 30px to the left from the starting point */
+}
+  
