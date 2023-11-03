@@ -1,10 +1,8 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import Player from './Player';
 import './Player.css';
 import ScrollingContainer from './ScrollingContainer.js';
-import MovingComponent from './MovingComponent.js';
 import React, { useState, useEffect } from 'react';
 
 
@@ -33,6 +31,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
   </React.StrictMode>
 );
 
+/*
 function ComponentA(){
   const [renderComponentB, setRenderComponentB] = useState(false);
 
@@ -48,3 +47,4 @@ function ComponentA(){
     </>
   );
 }
+*/
