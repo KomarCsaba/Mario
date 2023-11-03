@@ -19,10 +19,10 @@ body{
   background-color: beige;
 }
 
-.moving-div {
+/* .moving-div {
   position: absolute;
-  animation: moveLeft 5s linear infinite;
-}
+  animation: moveLeft 10s linear infinite;
+} */
 
 @keyframes moveLeft {
   0% {

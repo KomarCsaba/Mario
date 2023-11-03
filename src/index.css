@@ -42,7 +42,7 @@ code {
 
 .moving-div {
   position: absolute;
-  animation: moveLeft 5s linear infinite;
+  animation: moveLeft 12s linear infinite;
 }
 
 @keyframes moveLeft {
