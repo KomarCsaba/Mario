@@ -41,7 +41,7 @@ code {
 
 .moving-div {
   position: absolute;
-  animation: moveLeft 50s linear infinite;
+  animation: moveLeft 30s linear infinite;
 }
 
 @keyframes moveLeft {
