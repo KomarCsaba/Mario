@@ -1,5 +1,4 @@
 import './App.css';
-import React, { useRef, useEffect } from 'react';
 import Plan from "./Obstacle";
 function App() {
   for (let index = 1; index > 0; index++) {
