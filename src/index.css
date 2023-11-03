@@ -49,6 +49,6 @@ code {
       right: 0; /* Starting position */
   }
   100% {
-      right: 100%; /* Ending position (move to the right end) */
+      right: 100%; /* Ending position (move to the left end) */
   }
 }
