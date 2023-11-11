@@ -10,7 +10,7 @@ const CollisionDetection = () => {
   /*
     -isColliding: Ez az állapot változó, amely tárolja, hogy a két <div> elem érintkezik-e vagy sem. 
         Az alapértelmezett értéke false, tehát kezdetben nem érintkeznek.
-    -setIsColliding: Ez a függvény, amelyet hívva módosíthatjuk az isColliding állapotot. 
+    -setIsColliding: Ez a függvény, amelyet hívva módosíthatjuk az isColliding állapotot. (false/true = hozzáér vagy nem)
         Amikor például az érintkezés megtörténik, meghívhatjuk setIsColliding(true)-t, és az állapot frissül, ami az új értéket 
         kiváltja a komponens újrarajzolásával együtt.
   */
