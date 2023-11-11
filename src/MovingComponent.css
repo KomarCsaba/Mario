@@ -1,14 +1,22 @@
-.element {
-    position: absolute; /* Remove the element from the document flow */
-    right: 0; /* Set the starting position to the right side of the page */
-    width: 50px;
-    height: 50px;
-    background-color: #3498db;
-    transition: transform 10s ease; /* Apply a 1-second transition for the transform property */
-  }
-  
-  /* Add a class to trigger the animation */
-.element.animate {
-    transform: translateX(-500px); /* Move the element 30px to the left from the starting point */
+.moving-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  white-space: nowrap;
 }
-  
+
+.moving-component {
+  display: inline-block;
+  width: 50px; /* Adjust the width based on your preference */
+  height: 50px; /* Adjust the height based on your preference */
+  background-color: #3498db; /* Adjust the background color based on your preference */
+  margin-right: 200px; /* Adjust the spacing between components based on your preference */
+  animation: moveLeft 5s linear infinite; /* Adjust the animation duration based on your preference */
+}
+
+@keyframes moveLeft {
+  to {
+    transform: translateX(-100%);
+  }
+}
