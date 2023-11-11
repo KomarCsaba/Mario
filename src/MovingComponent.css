@@ -11,8 +11,8 @@
   width: 50px; /* Adjust the width based on your preference */
   height: 50px; /* Adjust the height based on your preference */
   background-color: #3498db; /* Adjust the background color based on your preference */
-  margin-right: 200px; /* Adjust the spacing between components based on your preference */
-  animation: moveLeft 10s linear infinite; /* Adjust the animation duration (changed to 10s) based on your preference */
+  margin-right: 100px; /* Adjust the spacing between components based on your preference */
+  animation: moveLeft 5s linear infinite; /* Adjust the animation duration based on your preference */
 }
 
 @keyframes moveLeft {
