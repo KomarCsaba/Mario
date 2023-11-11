@@ -6,19 +6,19 @@ import Player from './Player';
 function App() {
   return ( 
     <div className="App">
-      <div className='componentPlayer moving-div'>
+      <div className='componentPlayer'>
         <Player/>
       </div>
-      <div className='component'>
+      <div className='component moving-div'>
         <Plan width="50px" height="50px"/> 
       </div>
-      <div className='component'>
+      <div className='component moving-div'>
         <Plan width="50px" height="80px"/>
       </div>
-      <div className='component'>
+      <div className='component moving-div'>
         <Plan width="50px" height="80px"/>
       </div>
-      <div className='floatingSquare'>
+      <div className='floatingSquare moving-div'>
         <Plan width="200px" height="50px"/>
       </div>
     </div>

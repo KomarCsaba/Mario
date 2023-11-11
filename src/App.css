@@ -29,14 +29,15 @@ body{
 
 .moving-div {
   position: absolute;
+  margin-right: 20px;
   animation: moveLeft 5s linear infinite;
 }
 
 @keyframes moveLeft {
   0% {
-      left: 0; /* Starting position */
+      right: 0; /* Starting position */
   }
   100% {
-      left: 100%; /* Ending position (move to the right end) */
+      right: 100%; /* Ending position (move to the right end) */
   }
 }
