@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
 
 const CollisionDetection = () => {
-  const div1Ref = useRef(null); // egy referencia, amit egy div-hez rendelünk
-  const div2Ref = useRef(null); // egy referencia, amit egy div-hez rendelünk
+  const div1Ref = useRef(null); //egy referencia, amit egy div-hez rendelünk
+  const div2Ref = useRef(null); //egy referencia, amit egy div-hez rendelünk
   const [isColliding, setIsColliding] = useState(false);
   //Ez a kód egy React state változót hoz létre isColliding néven, és egy hozzá tartozó állapotkezelő függvényt setIsColliding néven.
   //Ez a sor a React useState Hook-ot használja, ami azt jelenti, hogy egy állapotot hoz létre a funkcionális komponensben. A useState

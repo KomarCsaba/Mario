@@ -3,11 +3,12 @@ import './index.css';
 import './Player.css';
 import React, { useState, useEffect } from 'react';
 import MovingComponent from './MovingComponent.js';
-
+import Player from './Player.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
   root.render(
   <React.StrictMode>
+    <Player/>
     <MovingComponent/>
   </React.StrictMode>
 );
