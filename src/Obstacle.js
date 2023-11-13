@@ -16,9 +16,9 @@ function Obstacle() {
   };
 
   const restartAnimation = () => {
-    obstacleRef.current.classList.remove("yourAnimationClass");
+    obstacleRef.current.classList.remove("block");
     void obstacleRef.current.offsetWidth;
-    obstacleRef.current.classList.add("yourAnimationClass");
+    obstacleRef.current.classList.add("block");
   };
 
   useEffect(() => {
