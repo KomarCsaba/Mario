@@ -11,7 +11,7 @@ function Obstacle() {
       playerRef.current.classList.add("jump");
       setTimeout(function () {
         playerRef.current.classList.remove("jump");
-      }, 300);
+      }, 1000);
     }
   };
 
