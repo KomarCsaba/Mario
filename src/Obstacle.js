@@ -22,7 +22,7 @@ function Obstacle() {
     // Remove the class after a delay to reset the animation
     setTimeout(() => {
       obstacleRef.current.classList.remove("block");
-    }, 1000); // Adjust the delay as needed
+    }, 5000); // Adjust the delay as needed
   };
   useEffect(() => {
     restartAnimation();
