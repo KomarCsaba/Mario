@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./FinalObstacle.css";
+import "./Obstacle.css";
 
-function FinalObstacle() {
+function Obstacle() {
   //ref to get 'player' html element in js
   const playerRef = useRef();
   //ref to get 'obstacle' html element in js
@@ -61,4 +61,4 @@ function FinalObstacle() {
   );
 }
 
-export default FinalObstacle;
+export default Obstacle;

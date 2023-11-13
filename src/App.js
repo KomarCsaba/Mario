@@ -2,7 +2,6 @@ import './App.css';
 import Plan from "./Obstacle";
 import Score from "./Score";
 import React, { useEffect, useRef, useState } from "react";
-import { ReactDOM } from 'react';
 
 let random1;
 let random2;

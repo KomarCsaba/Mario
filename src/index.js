@@ -1,10 +1,10 @@
 import ReactDOM from 'react-dom/client';
 import React from 'react';
-import FinalObstacle from './FinalObstacle.js';
+import Obstacle from './Obstacle.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
   root.render(
   <React.StrictMode>
-    <FinalObstacle/>
+    <Obstacle/>
   </React.StrictMode>
 );
