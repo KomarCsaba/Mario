@@ -38,11 +38,10 @@ function Obstacle() {
         getComputedStyle(obstacleRef.current).getPropertyValue("left")
       );
 
-      if (obstacleLeft < 60 && obstacleLeft > 0 && playerTop >= 390) {
+      if (obstacleLeft < 60 && obstacleLeft > 0 && playerTop >= 360) {
         alert("Game Over! Your Score : " + score);
         setScore(0);
         restartAnimation();
-
       } else {
         setScore(score + 1);
       }
