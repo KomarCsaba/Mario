@@ -86,7 +86,6 @@ function Obstacle() {
   -kellenek a képek
   -méretre szabás
   -guggolás
-  -mozgás, hogy visszadobja a kaktuszt az elejére
   -High score
   -alertet javítani
   -több akadály (köztük csillaggal)
