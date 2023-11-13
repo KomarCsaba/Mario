@@ -59,4 +59,15 @@ function Obstacle() {
   );
 }
 
+/*
+  -be kell rakni a pontokat
+   és megcsinálni
+  -kellenek a képek
+  -méretre szabás
+  -guggolás
+  -mozgás, hogy visszadobja a kaktuszt az elejére
+  -High score
+  -alertet javítani
+*/
+
 export default Obstacle;
