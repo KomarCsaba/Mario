@@ -11,7 +11,7 @@ const MovingComponent = () => {
         const newComponent = <div key={Date.now()} className="moving-component" style={{ backgroundColor: randomColor }} />;
         return [...prevComponents, newComponent];
       });
-    }, 200); // Adjust the interval based on your preference
+    }, 1000); // Adjust the interval (changed to 1000ms) based on your preference for a slower animation
 
     return () => clearInterval(intervalId); // Cleanup on component unmount
   }, []);
