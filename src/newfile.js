@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
 
 const CollisionDetection = () => {
-  const div1Ref = useRef(null); // egy referencia, amit egy div-hez rendelünk
-  const div2Ref = useRef(null); // egy referencia, amit egy div-hez rendelünk
+  const div1Ref = useRef(null); //egy referencia, amit egy div-hez rendelünk
+  const div2Ref = useRef(null); //egy referencia, amit egy div-hez rendelünk
   const [isColliding, setIsColliding] = useState(false);
   //Ez a kód egy React state változót hoz létre isColliding néven, és egy hozzá tartozó állapotkezelő függvényt setIsColliding néven.
   //Ez a sor a React useState Hook-ot használja, ami azt jelenti, hogy egy állapotot hoz létre a funkcionális komponensben. A useState
@@ -10,7 +10,7 @@ const CollisionDetection = () => {
   /*
     -isColliding: Ez az állapot változó, amely tárolja, hogy a két <div> elem érintkezik-e vagy sem. 
         Az alapértelmezett értéke false, tehát kezdetben nem érintkeznek.
-    -setIsColliding: Ez a függvény, amelyet hívva módosíthatjuk az isColliding állapotot. 
+    -setIsColliding: Ez a függvény, amelyet hívva módosíthatjuk az isColliding állapotot. (false/true = hozzáér vagy nem)
         Amikor például az érintkezés megtörténik, meghívhatjuk setIsColliding(true)-t, és az állapot frissül, ami az új értéket 
         kiváltja a komponens újrarajzolásával együtt.
   */

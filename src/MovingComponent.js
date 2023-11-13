@@ -13,6 +13,7 @@ const MovingComponent = () => {
       });
     }, 1000); // Adjust the interval (changed to 1000ms) based on your preference for a slower animation
 
+
     return () => clearInterval(intervalId); // Cleanup on component unmount
   }, []);
 
