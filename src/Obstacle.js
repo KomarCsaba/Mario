@@ -57,6 +57,9 @@ function Obstacle() {
       if (event.key === " " || event.key === "ArrowUp") {
         jump();
       }
+      if (event.key === "ArrowDown") {
+        console.log("Down") /*gugolás implementálás*/
+      }
     };
   
     document.addEventListener("keydown", handleKeyPress);
@@ -84,6 +87,7 @@ function Obstacle() {
   -mozgás, hogy visszadobja a kaktuszt az elejére
   -High score
   -alertet javítani
+  -több akadály (köztük csillaggal)
 */
 
 export default Obstacle;
