@@ -8,6 +8,8 @@
 .score {
   font-family: "Inconsolata";
   font-size: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
   
 #player {
@@ -33,7 +35,7 @@
   }
   
   50% {
-    top: 180px;
+    top: 180;
   }
   
   80% {
@@ -55,7 +57,7 @@
   background-size: 40px 70px;
 }
   
-.block{
+.block {
   animation: block 5s infinite linear;
 }
 
