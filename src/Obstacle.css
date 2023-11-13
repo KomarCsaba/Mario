@@ -1,9 +1,13 @@
 .game {
-    width: 1000px;
-    height: 550px;
-    border: 1px solid black;
-    margin: auto;
-  }
+  width: 1000px;
+  height: 550px;
+  border: 1px solid black;
+  margin: auto;
+}
+
+.score {
+  font-family: "Inconsolata";
+}
   
 #player {
   width: 80px;
@@ -11,7 +15,7 @@
   background-image: url(assets/trex.png);
   background-size: 80px 90px;
   position: relative;
-  top: 440px;
+  top: 410px;
 }
   
 .jump {
@@ -44,7 +48,7 @@
   width: 40px;
   height: 70px;
   position: relative;
-  top: 360px;
+  top: 340px;
   left: 980px;
   background-image: url(assets/cactus.png);
   background-size: 40px 70px;
