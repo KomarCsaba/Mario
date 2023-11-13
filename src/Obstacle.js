@@ -16,10 +16,17 @@ function Obstacle() {
   };
 
   const restartAnimation = () => {
-    obstacleRef.current.classList.remove("block");
-    void obstacleRef.current.offsetWidth;
+    // Add a class to trigger the block animation
     obstacleRef.current.classList.add("block");
+
+    // Remove the class after a delay to reset the animation
+    setTimeout(() => {
+      obstacleRef.current.classList.remove("block");
+    }, 1000); // Adjust the delay as needed
   };
+  useEffect(() => {
+    restartAnimation();
+  }, []);
 
   useEffect(() => {
     const isAlive = setInterval(function () {
