@@ -38,11 +38,10 @@ function Obstacle() {
         getComputedStyle(obstacleRef.current).getPropertyValue("left")
       );
 
-      if (obstacleLeft < 60 && obstacleLeft > 0 && playerTop >= 390) {
+      if (obstacleLeft < 60 && obstacleLeft > 0 && playerTop >= 360) {
         alert("Game Over! Your Score : " + score);
         setScore(0);
         restartAnimation();
-
       } else {
         setScore(score + 1);
       }
@@ -56,6 +55,9 @@ function Obstacle() {
     const handleKeyPress = (event) => {
       if (event.key === " " || event.key === "ArrowUp") {
         jump();
+      }
+      if (event.key === "ArrowDown") {
+        console.log("Down") /*gugolás implementálás*/
       }
     };
   
@@ -89,6 +91,7 @@ function Obstacle() {
   -mozgás, hogy visszadobja a kaktuszt az elejére
   -High score
   -alertet javítani
+  -több akadály (köztük csillaggal)
 */
 
 export default Obstacle;
