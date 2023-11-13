@@ -25,23 +25,23 @@
   
 @keyframes jump {
   0% {
-    top: 440px;
+    top: 360px;
   }
   
   30% {
-    top: 132px;
+    top: 108px;
   }
   
   50% {
-    top: 220px;
+    top: 180px;
   }
   
   80% {
-    top: 352px;
+    top: 288px;
   }
   
   100% {
-    top: 440px;
+    top: 360px;
   }
 }
   
