@@ -16,16 +16,17 @@ function Obstacle() {
   };
 
   const restartAnimation = () => {
-    // Add a class to trigger the block animation
-    obstacleRef.current.classList.add("block");
-
-    // Remove the class after a delay to reset the animation
     setTimeout(() => {
       obstacleRef.current.classList.remove("block");
-    }, 5000); // Adjust the delay as needed
+    }, 500); // Adjust the delay as needed
+    obstacleRef.current.classList.add("block");
   };
+  const startAnimation = () => {
+    obstacleRef.current.classList.add("block");
+  }
+
   useEffect(() => {
-    restartAnimation();
+    startAnimation();
   }, []);
 
   useEffect(() => {
@@ -41,6 +42,7 @@ function Obstacle() {
         alert("Game Over! Your Score : " + score);
         setScore(0);
         restartAnimation();
+
       } else {
         setScore(score + 1);
       }
