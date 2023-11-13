@@ -7,6 +7,7 @@
 
 .score {
   font-family: "Inconsolata";
+  font-size: 30px;
 }
   
 #player {
@@ -15,7 +16,7 @@
   background-image: url(assets/trex.png);
   background-size: 80px 90px;
   position: relative;
-  top: 410px;
+  top: 360px;
 }
   
 .jump {
@@ -48,7 +49,7 @@
   width: 40px;
   height: 70px;
   position: relative;
-  top: 340px;
+  top: 290px;
   left: 980px;
   background-image: url(assets/cactus.png);
   background-size: 40px 70px;
