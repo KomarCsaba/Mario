@@ -73,7 +73,7 @@ function Obstacle() {
       <div className="score">
         <p>Score : {score}</p>
       </div>
-      <div>
+      <div className="valami">
         <div id="player" ref={playerRef}/>
         <div id="obstacle" ref={obstacleRef}/>
       </div>
