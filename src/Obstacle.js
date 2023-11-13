@@ -52,7 +52,7 @@ function Obstacle() {
   
   return (
     <div className="game">
-      Score : {score}
+      <p className="score">Score : {score}</p>
       <div id="player" ref={playerRef}></div>
       <div id="obstacle" ref={obstacleRef}></div>
     </div>
