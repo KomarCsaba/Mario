@@ -3,13 +3,20 @@
   height: 550px;
   border: 1px solid black;
   margin: auto;
+  padding: 0px;
 }
 
 .score {
   font-family: "Inconsolata";
   font-size: 30px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  height: 50px;
+  text-align: center;
+  background-color: blueviolet;
+  padding-top: 20px;
+}
+
+p {
+  margin: 0px;
 }
   
 #player {
