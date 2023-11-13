@@ -35,11 +35,21 @@ function FinalObstacle() {
     return () => clearInterval(isAlive);
   });
 
-  useEffect(() => {
-    document.addEventListener("keydown", jump);
-    return () => document.removeEventListener("keydown", jump);
-  }, []);
 
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (event.key === " " || event.key === "ArrowUp") {
+        jump();
+      }
+    };
+  
+    document.addEventListener("keydown", handleKeyPress);
+  
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
+  }, []);
+  
   return (
     <div className="game">
       Score : {score}
