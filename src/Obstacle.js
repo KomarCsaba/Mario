@@ -16,9 +16,7 @@ function Obstacle() {
   };
 
   const restartAnimation = () => {
-    setTimeout(() => {
-      obstacleRef.current.classList.remove("block");
-    }, 500); // Adjust the delay as needed
+    obstacleRef.current.classList.remove("block");
     obstacleRef.current.classList.add("block");
   };
   const startAnimation = () => {
