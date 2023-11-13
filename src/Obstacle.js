@@ -24,7 +24,7 @@ function Obstacle() {
         getComputedStyle(obstacleRef.current).getPropertyValue("left")
       );
 
-      if (obstacleLeft < 40 && obstacleLeft > 0 && playerTop >= 140) {
+      if (obstacleLeft < 60 && obstacleLeft > 0 && playerTop >= 390) {
         alert("Game Over! Your Score : " + score);
         setScore(0);
       } else {
