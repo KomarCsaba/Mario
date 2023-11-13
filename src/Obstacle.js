@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./FinalObstacle.css";
+import "./Obstacle.css";
 
-function FinalObstacle() {
+function Obstacle() {
   const playerRef = useRef();
   const obstacleRef = useRef();
   const [score, setScore] = useState(0);
@@ -59,4 +59,4 @@ function FinalObstacle() {
   );
 }
 
-export default FinalObstacle;
+export default Obstacle;
