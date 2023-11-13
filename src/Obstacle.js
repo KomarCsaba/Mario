@@ -15,6 +15,12 @@ function Obstacle() {
     }
   };
 
+  const restartAnimation = () => {
+    obstacleRef.current.classList.remove("yourAnimationClass");
+    void obstacleRef.current.offsetWidth;
+    obstacleRef.current.classList.add("yourAnimationClass");
+  };
+
   useEffect(() => {
     const isAlive = setInterval(function () {
       const playerTop = parseInt(
@@ -27,6 +33,7 @@ function Obstacle() {
       if (obstacleLeft < 40 && obstacleLeft > 0 && playerTop >= 140) {
         alert("Game Over! Your Score : " + score);
         setScore(0);
+        restartAnimation();
       } else {
         setScore(score + 1);
       }
