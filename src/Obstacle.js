@@ -5,7 +5,7 @@ function Obstacle() {
   const playerRef = useRef();
   const obstacleRef = useRef();
   const starRef = useRef();
-  const [score = 0, setScore] = useState(0);
+  const [score, setScore] = useState(0);
 
   const jump = () => {
     if (!!playerRef.current && playerRef.current.classList !== "jump") {
@@ -51,8 +51,8 @@ function Obstacle() {
         restartAnimation(); //újrakezdődik a játék
       }
 
-      if (starLeft < 60 && starLeft > 0 && playerTop < 360) { //ekkor ütközik a csillaggal
-        setScore(score + 1);
+      if (starLeft < 60 && starLeft > 0 && playerTop >= 360) { //ekkor ütközik a csillaggal
+        setScore(score + 1); //növeljük a pontokat 1-gyel
       }
 
     }, 10);
