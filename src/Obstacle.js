@@ -6,6 +6,7 @@ function Obstacle() {
   const obstacleRef = useRef();
   const starRef = useRef();
   const [score, setScore] = useState(0);
+  const [felteteTeljesult, setFeltetelTeljesult] = useState(false);
 
   const jump = () => {
     if (!!playerRef.current && playerRef.current.classList !== "jump") {
@@ -52,25 +53,51 @@ function Obstacle() {
         getComputedStyle(obstacleRef.current).getPropertyValue("left")
       );
 
-      const starLeft = parseInt(
-        getComputedStyle(starRef.current).getPropertyValue("left")
-      );
-
       if (obstacleLeft < 60 && obstacleLeft > 0 && playerTop >= 360) { //ekkor ütközik az akadályokkal
         alert(`Game Over! Your Score : ${score}`);
         setScore(0); //a score-t 0-ra állítja
         restartAnimation(); //újrakezdődik a játék
       }
 
-      if (starLeft < 60 && starLeft > 0 && playerTop >= 360) { //ekkor ütközik a csillaggal
-        setScore(score + 1); //növeljük a pontokat 1-gyel
-        restartGlide();
-      }
-
     }, 10);
 
     return () => clearInterval(isAlive);
   });
+
+  const checkCondition = () => {
+    const playerTop = parseInt(
+      getComputedStyle(playerRef.current).getPropertyValue('top')
+    );
+
+    const starLeft = parseInt(
+      getComputedStyle(starRef.current).getPropertyValue('left')
+    );
+
+    return starLeft < 60 && starLeft > 0 && playerTop >= 360;
+  };
+
+  const handleCondition = () => {
+    if (checkCondition()) {
+      setScore((prevScore) => prevScore + 1);
+      setFeltetelTeljesult(true);
+      restartGlide();
+    } else {
+      setFeltetelTeljesult(false);
+    }
+  };
+
+  const setupInterval = () => {
+    console.log('Pont');
+    // Set up an interval to check the condition every 100 milliseconds
+    const intervalId = setInterval(handleCondition, 300);
+    return intervalId;
+  };
+
+  useEffect(() => {
+    const intervalId = setupInterval();
+    // Clean up the interval when the component is unmounted
+    return () => clearInterval(intervalId);
+  }, []);
 
   useEffect(() => {
     const handleKeyPress = (event) => {
