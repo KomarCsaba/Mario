@@ -56,13 +56,21 @@ function Obstacle() {
         getComputedStyle(starRef.current).getPropertyValue("left")
       );
 
+      const starTop = parseInt(
+        getComputedStyle(starRef.current).getPropertyValue("top")
+      );
+
+      const playerBottom = parseInt(
+        getComputedStyle(playerRef.current).getPropertyValue("bottom")
+      );
+
       if (obstacleLeft < 60 && obstacleLeft > 0 && playerTop >= 360) { //ekkor ütközik az akadályokkal
         alert(`Game Over! Your Score : ${score}`);
         setScore(0); //a score-t 0-ra állítja
         restartAnimation(); //újrakezdődik a játék
       }
 
-      if (starLeft < 60 && starLeft > 0 && playerTop >= 360) { //ekkor ütközik a csillaggal
+      if ((starLeft < 60 && starLeft > 0 && playerTop >= 360) || (starLeft < 60 && starLeft > 0 && playerBottom == 550 - starTop)) { //ekkor ütközik a csillaggal
         setScore(score + 1); //növeljük a pontokat 1-gyel
         restartGlide();
       }
