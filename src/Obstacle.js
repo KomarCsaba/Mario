@@ -62,7 +62,7 @@ function Obstacle() {
         restartAnimation(); //újrakezdődik a játék
       }
 
-      if (starLeft < 60 && starLeft > 0 && playerTop < 360) { //ekkor ütközik a csillaggal
+      if (starLeft < 60 && starLeft > 0 && playerTop >= 360) { //ekkor ütközik a csillaggal
         setScore(score + 1); //növeljük a pontokat 1-gyel
         restartGlide();
       }
