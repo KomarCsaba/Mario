@@ -32,18 +32,29 @@ function Obstacle() {
 
   useEffect(() => {
     const isAlive = setInterval(function () {
+
       const playerTop = parseInt(
         getComputedStyle(playerRef.current).getPropertyValue("top")
       );
-      let obstacleLeft = parseInt(
+
+      const obstacleLeft = parseInt(
         getComputedStyle(obstacleRef.current).getPropertyValue("left")
       );
 
-      if (obstacleLeft < 60 && obstacleLeft > 0 && playerTop >= 360) {
-        alert("Game Over! Your Score : " + score);
-        setScore(0);
-        restartAnimation();
+      const starLeft = parseInt(
+        getComputedStyle(starRef.ref.current).getPropertyValue("left")
+      );
+
+      if (obstacleLeft < 60 && obstacleLeft > 0 && playerTop >= 360) { //ekkor ütközik az akadályokkal
+        alert(`Game Over! Your Score : ${score}`);
+        setScore(0); //a score-t 0-ra állítja
+        restartAnimation(); //újrakezdődik a játék
       }
+
+      if (starLeft < 60 && starLeft > 0 && playerTop < 360) { //ekkor ütközik a csillaggal
+        setScore(score + 1);
+      }
+
     }, 10);
 
     return () => clearInterval(isAlive);
