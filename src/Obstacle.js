@@ -145,14 +145,12 @@ function Obstacle() {
 }
 
 /*
-  -be kell rakni a pontokat
-   és megcsinálni
   -kellenek a képek
   -méretre szabás
   -guggolás
   -High score
   -alertet javítani
-  -több akadály (köztük csillaggal)
+  -több akadály
 */
 
 export default Obstacle;
