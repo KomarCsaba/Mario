@@ -19,6 +19,10 @@ function Obstacle() {
   const restartAnimation = () => {
     obstacleRef.current.classList.remove("block");
     obstacleRef.current.classList.add("block");
+    starRef.current.classList.remove("starGlide");
+    setTimeout(() => {
+      starRef.current.classList.add("starGlide")
+    }, 1000);
   };
 
   const startAnimation = () => {
@@ -49,7 +53,7 @@ function Obstacle() {
       );
 
       const starLeft = parseInt(
-        getComputedStyle(starRef.ref.current).getPropertyValue("left")
+        getComputedStyle(starRef.current).getPropertyValue("left")
       );
 
       if (obstacleLeft < 60 && obstacleLeft > 0 && playerTop >= 360) { //ekkor ütközik az akadályokkal
@@ -93,8 +97,10 @@ function Obstacle() {
       </div>
       <div>
         <div id="player" ref={playerRef}/>
-        <div id="obstacle" ref={obstacleRef}/>
-        <div id="star" ref={starRef}/>
+        <div className="flexDiv">
+          <div id="obstacle" ref={obstacleRef}/>
+          <div id="star" ref={starRef}/>
+        </div>
       </div>
       
     </div>
