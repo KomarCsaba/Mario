@@ -49,6 +49,10 @@ function Obstacle() {
         getComputedStyle(playerRef.current).getPropertyValue("top")
       );
 
+      const playerBottom = parseInt(
+        getComputedStyle(playerRef.current).getPropertyValue("bottom")
+      );
+
       const obstacleLeft = parseInt(
         getComputedStyle(obstacleRef.current).getPropertyValue("left")
       );
@@ -58,7 +62,6 @@ function Obstacle() {
         setScore(0); //a score-t 0-ra állítja
         restartAnimation(); //újrakezdődik a játék
       }
-
     }, 10);
 
     return () => clearInterval(isAlive);
@@ -73,7 +76,15 @@ function Obstacle() {
       getComputedStyle(starRef.current).getPropertyValue('left')
     );
 
-    return starLeft < 60 && starLeft > 0 && playerTop >= 360;
+    const playerBottom = parseInt(
+      getComputedStyle(playerRef.current).getPropertyValue("bottom")
+    );
+
+    const starTop = parseInt(
+      getComputedStyle(starRef.current).getPropertyValue("top")
+    );
+
+    return (starLeft < 60 && starLeft > 0 && playerTop >= 360) || (starLeft < 60 && starLeft > 0 && playerBottom == 550 - starTop)
   };
 
   const handleCondition = () => {
