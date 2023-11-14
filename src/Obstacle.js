@@ -20,6 +20,7 @@ function Obstacle() {
     obstacleRef.current.classList.remove("block");
     obstacleRef.current.classList.add("block");
   };
+  
   const startAnimation = () => {
     obstacleRef.current.classList.add("block");
   }
