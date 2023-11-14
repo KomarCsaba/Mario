@@ -98,7 +98,6 @@ function Obstacle() {
   };
 
   const setupInterval = () => {
-    console.log('Pont');
     // Set up an interval to check the condition every 100 milliseconds
     const intervalId = setInterval(handleCondition, 300);
     return intervalId;
