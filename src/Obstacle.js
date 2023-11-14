@@ -7,7 +7,7 @@ function Obstacle() {
   const playerRef = useRef();
   const obstacleRef = useRef();
   const starRef = useRef();
-  const [score, setScore] = useState(0);
+  const [score = 0, setScore] = useState(0);
 
   const jump = () => {
     if (!!playerRef.current && playerRef.current.classList !== "jump") {
