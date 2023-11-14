@@ -72,7 +72,6 @@ function Obstacle() {
     return () => clearInterval(isAlive);
   });
 
-
   useEffect(() => {
     const handleKeyPress = (event) => {
       if (event.key === " " || event.key === "ArrowUp") {
