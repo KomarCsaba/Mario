@@ -23,8 +23,15 @@ function Obstacle() {
 
   const startAnimation = () => {
     obstacleRef.current.classList.add("block");
-    starRef.current.classList.add("starGlide")
+    setTimeout(() => {
+      starRef.current.classList.add("starGlide")
+    }, 1000);
   };
+
+  const restartGlide = () => {
+    starRef.current.classList.remove("starGlide");
+    starRef.current.classList.add("starGlide");
+  }
 
   useEffect(() => {
     startAnimation();
@@ -53,6 +60,7 @@ function Obstacle() {
 
       if (starLeft < 60 && starLeft > 0 && playerTop < 360) { //ekkor ütközik a csillaggal
         setScore(score + 1);
+        restartGlide();
       }
 
     }, 10);
