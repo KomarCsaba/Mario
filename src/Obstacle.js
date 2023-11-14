@@ -6,6 +6,7 @@ let score;
 function Obstacle() {
   const playerRef = useRef();
   const obstacleRef = useRef();
+  const starRef = useRef();
   const [score, setScore] = useState(0);
 
   const jump = () => {
@@ -81,6 +82,7 @@ function Obstacle() {
       <div>
         <div id="player" ref={playerRef}/>
         <div id="obstacle" ref={obstacleRef}/>
+        <div className="star" ref={starRef}/>
       </div>
       
     </div>
