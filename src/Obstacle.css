@@ -63,7 +63,31 @@ p {
   background-image: url(assets/cactus.png);
   background-size: 40px 70px;
 }
+
+#star{
+  width: 40px;
+  height: 70px;
+  position: relative;
+  top: 290px;
+  left: 980px;
+  background-image: url(assets/star.png);
+  background-size: 40px 70px;
+}
+
+.starGlide{
+  animation: starGlide 5s infinite linear;
+}
+
+@keyframes starGlide{
+  0% {
+    left: 980px;
+  }
   
+  100% {
+    left: -5px;
+  }
+}
+
 .block {
   animation: block 5s infinite linear;
 }

@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Obstacle.css";
 
-let score;
-
 function Obstacle() {
   const playerRef = useRef();
   const obstacleRef = useRef();
@@ -22,13 +20,11 @@ function Obstacle() {
     obstacleRef.current.classList.remove("block");
     obstacleRef.current.classList.add("block");
   };
+
   const startAnimation = () => {
     obstacleRef.current.classList.add("block");
+    starRef.current.classList.add("starGlide")
   };
-
-  const getscore = () => {
-    score = 0;
-  }
 
   useEffect(() => {
     startAnimation();
@@ -47,8 +43,6 @@ function Obstacle() {
         alert("Game Over! Your Score : " + score);
         setScore(0);
         restartAnimation();
-      } else {
-        setScore(score + 1);
       }
     }, 10);
 
@@ -81,7 +75,7 @@ function Obstacle() {
       <div>
         <div id="player" ref={playerRef}/>
         <div id="obstacle" ref={obstacleRef}/>
-        <div className="star" ref={starRef}/>
+        <div id="star" ref={starRef}/>
       </div>
       
     </div>
