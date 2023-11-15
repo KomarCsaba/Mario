@@ -212,6 +212,7 @@ function Obstacle() {
   -restart
   -több akadály
   -score ne 0 legyen halál után
+  gyorsulás ahogy nő a pontszám
 */
 
 export default Obstacle;
