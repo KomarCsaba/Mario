@@ -59,7 +59,7 @@ p {
   }
 }
   
-#obstacle {
+.kicsi {
   width: 40px;
   height: 70px;
   position: relative;
@@ -68,6 +68,15 @@ p {
   background-image: url(assets/cactus.png);
   background-size: 40px 70px;
 }
+
+.nagy{
+
+}
+
+.lebego{
+
+}
+
 
 .flexDiv{
   display: flex;

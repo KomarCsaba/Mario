@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./Obstacle.css";
 
 function Obstacle() {
+  const obstacleType = ["kicsi", "nagy", "lebego"];
   const playerRef = useRef();
   const obstacleRef = useRef();
   const starRef = useRef();
@@ -20,6 +21,7 @@ function Obstacle() {
 
   const restartAnimation = () => {
     obstacleRef.current.classList.remove("block");
+    createObstacle();
     obstacleRef.current.classList.add("block");
     starRef.current.classList.remove("starGlide");
     setTimeout(() => {
@@ -27,7 +29,13 @@ function Obstacle() {
     }, 1000);
   };
 
+  function createObstacle() {
+    let type = obstacleType[0];
+    obstacleRef.current.classList.add(type);
+  }
+
   const startAnimation = () => {
+    createObstacle();
     obstacleRef.current.classList.add("block");
     setTimeout(() => {
       starRef.current.classList.add("starGlide")
@@ -139,7 +147,7 @@ function Obstacle() {
       <div>
         <div id="player" ref={playerRef}/>
         <div className="flexDiv">
-          <div id="obstacle" ref={obstacleRef}/>
+          <div ref={obstacleRef}/>
           <div id="star" ref={starRef}/>
         </div>
       </div>
@@ -152,7 +160,6 @@ function Obstacle() {
   -kellenek a képek
   -méretre szabás
   -guggolás
-  -High score
   -alertet javítani
   -több akadály
 */
