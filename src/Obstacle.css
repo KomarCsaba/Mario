@@ -24,13 +24,24 @@ p {
   margin: 0px;
 }
   
-#player {
+/*
+  -kellenek a képek
+  -méretre szabás
+  -guggolás
+  -alertet javítani
+  -több akadály
+*/
+.player {
   width: 80px;
   height: 90px;
   background-image: url(assets/trex.png);
   background-size: 80px 90px;
   position: relative;
   top: 360px;
+}
+
+.playerGuggolas{
+
 }
   
 .jump {

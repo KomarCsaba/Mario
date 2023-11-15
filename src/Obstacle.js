@@ -9,6 +9,7 @@ function Obstacle() {
   const [score, setScore] = useState(0);
   const [felteteTeljesult, setFeltetelTeljesult] = useState(false);
   const [highScore, setHighScore] = useState(0);
+  const [isCrouching, setIsCrouching] = useState(false);
 
   const jump = () => {
     if (!!playerRef.current && playerRef.current.classList !== "jump") {
@@ -17,6 +18,16 @@ function Obstacle() {
         playerRef.current.classList.remove("jump");
       }, 1000);
     }
+  };
+
+  const crouchStart = () => {
+    setIsCrouching(true);
+    playerRef.current.classList.add("playerGuggolas");
+  };
+
+  const crouchStop = () => {
+    setIsCrouching(false);
+    playerRef.current.classList.remove("playerGuggolas");
   };
 
   const restartAnimation = () => {
@@ -51,6 +62,32 @@ function Obstacle() {
   useEffect(() => {
     startAnimation();
   }, []);
+
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (event.key === " " || event.key === "ArrowUp") {
+        jump();
+      }
+      if (event.key === "ArrowDown") {
+        crouchStart();
+      }
+    };
+
+    const handleKeyUp = (event) => {
+      if (event.key === "ArrowDown") {
+        crouchStop();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyPress);
+    document.addEventListener("keyup", handleKeyUp);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+      document.removeEventListener("keyup", handleKeyUp);
+    };
+  }, []);
+
 
   useEffect(() => {
     const isAlive = setInterval(function () {
@@ -121,23 +158,6 @@ function Obstacle() {
     // Clean up the interval when the component is unmounted
     return () => clearInterval(intervalId);
   }, []);
-
-  useEffect(() => {
-    const handleKeyPress = (event) => {
-      if (event.key === " " || event.key === "ArrowUp") {
-        jump();
-      }
-      if (event.key === "ArrowDown") {
-        console.log("Down") /*gugolás implementálás*/
-      }
-    };
-  
-    document.addEventListener("keydown", handleKeyPress);
-  
-    return () => {
-      document.removeEventListener("keydown", handleKeyPress);
-    };
-  }, []);
   
   return (
     <div className="game">
@@ -146,7 +166,7 @@ function Obstacle() {
         <p id="high">High Score: {highScore}</p>
       </div>
       <div>
-        <div id="player" ref={playerRef}/>
+      <div className={`player ${isCrouching ? 'playerGuggolas' : ''}`} ref={playerRef} />
         <div className="flexDiv">
           <div ref={obstacleRef}/>
           <div id="star" ref={starRef}/>
@@ -157,12 +177,6 @@ function Obstacle() {
   );
 }
 
-/*
-  -kellenek a képek
-  -méretre szabás
-  -guggolás
-  -alertet javítani
-  -több akadály
-*/
+
 
 export default Obstacle;
