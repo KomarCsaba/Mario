@@ -179,9 +179,10 @@ function Obstacle() {
       document.removeEventListener("keydown", handleKeyPress);
     };
   }, []);
+
   const props = {
-    score: {score},
-    highScore: {highScore},
+    score,
+    highScore,
   };
   
   return (
@@ -202,6 +203,12 @@ function Obstacle() {
   );
 }
 
-
+/*
+  -kellenek a képek
+  -méretre szabás
+  -guggolás
+  -alertet javítani
+  -több akadály
+*/
 
 export default Obstacle;
