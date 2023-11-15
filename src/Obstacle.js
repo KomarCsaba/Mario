@@ -209,6 +209,7 @@ function Obstacle() {
   -guggolás
   -restart
   -több akadály
+  -score ne 0 legyen halál után
 */
 
 export default Obstacle;
