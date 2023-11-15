@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Obstacle.css";
+import EndDiv from "./End.js";
 
 function Obstacle() {
   const obstacleType = ["kicsi", "nagy", "lebego"];
@@ -9,6 +10,7 @@ function Obstacle() {
   const [score, setScore] = useState(0);
   const [felteteTeljesult, setFeltetelTeljesult] = useState(false);
   const [highScore, setHighScore] = useState(0);
+  const [end, setEnd] = useState(false);
   const [isCrouching, setIsCrouching] = useState(false);
 
   const jump = () => {
@@ -90,6 +92,7 @@ function Obstacle() {
 
 
   useEffect(() => {
+
     const isAlive = setInterval(function () {
 
       const playerTop = parseInt(
@@ -105,10 +108,11 @@ function Obstacle() {
       );
 
       if (obstacleLeft < 60 && obstacleLeft > 0 && playerTop >= 360) { //ekkor ütközik az akadályokkal
-        alert(`Game Over! Your Score : ${score}`);
+        //alert(`Game Over! Your Score : ${score}`);
         if (score > highScore) {
           setHighScore(score);
         }
+        setEnd(true);
         setScore(0); //a score-t 0-ra állítja
         restartAnimation(); //újrakezdődik a játék
       }
@@ -158,6 +162,27 @@ function Obstacle() {
     // Clean up the interval when the component is unmounted
     return () => clearInterval(intervalId);
   }, []);
+
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (event.key === " " || event.key === "ArrowUp") {
+        jump();
+      }
+      if (event.key === "ArrowDown") {
+        console.log("Down") /*gugolás implementálás*/
+      }
+    };
+  
+    document.addEventListener("keydown", handleKeyPress);
+  
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
+  }, []);
+  const props = {
+    score: {score},
+    highScore: {highScore},
+  };
   
   return (
     <div className="game">
@@ -170,9 +195,9 @@ function Obstacle() {
         <div className="flexDiv">
           <div ref={obstacleRef}/>
           <div id="star" ref={starRef}/>
+          { end && <EndDiv {...props}/> /*and mark*/ }
         </div>
       </div>
-      
     </div>
   );
 }
