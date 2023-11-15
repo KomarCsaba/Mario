@@ -11,6 +11,7 @@ function Obstacle() {
   const [felteteTeljesult, setFeltetelTeljesult] = useState(false);
   const [highScore, setHighScore] = useState(0);
   const [end, setEnd] = useState(false);
+  const [isCrouching, setIsCrouching] = useState(false);
 
   const jump = () => {
     if (!!playerRef.current && playerRef.current.classList !== "jump") {
@@ -19,6 +20,16 @@ function Obstacle() {
         playerRef.current.classList.remove("jump");
       }, 1000);
     }
+  };
+
+  const crouchStart = () => {
+    setIsCrouching(true);
+    playerRef.current.classList.add("playerGuggolas");
+  };
+
+  const crouchStop = () => {
+    setIsCrouching(false);
+    playerRef.current.classList.remove("playerGuggolas");
   };
 
   const restartAnimation = () => {
@@ -53,6 +64,32 @@ function Obstacle() {
   useEffect(() => {
     startAnimation();
   }, []);
+
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (event.key === " " || event.key === "ArrowUp") {
+        jump();
+      }
+      if (event.key === "ArrowDown") {
+        crouchStart();
+      }
+    };
+
+    const handleKeyUp = (event) => {
+      if (event.key === "ArrowDown") {
+        crouchStop();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyPress);
+    document.addEventListener("keyup", handleKeyUp);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+      document.removeEventListener("keyup", handleKeyUp);
+    };
+  }, []);
+
 
   useEffect(() => {
 
@@ -132,7 +169,7 @@ function Obstacle() {
         jump();
       }
       if (event.key === "ArrowDown") {
-        console.log("Down") /*guggolás implementálás*/
+        console.log("Down") /*gugolás implementálás*/
       }
     };
   
@@ -150,21 +187,14 @@ function Obstacle() {
     setEnd(false);
     restartAnimation();
   };
-/*
-  const props = {
-    score,
-    highScore,
-    onRestart,
-  };
-*/
-  return (
+    return (
     <div className="game">
       <div className="score">
         <p>Score : {score}</p>
         <p id="high">High Score: {highScore}</p>
       </div>
       <div>
-        <div id="player" ref={playerRef}/>
+      <div className={`player ${isCrouching ? 'playerGuggolas' : ''}`} ref={playerRef} />
         <div className="flexDiv">
           <div ref={obstacleRef}/>
           <div id="star" ref={starRef}/>
@@ -179,8 +209,9 @@ function Obstacle() {
   -kellenek a képek
   -méretre szabás
   -guggolás
-  -alertet javítani
+  -restart
   -több akadály
+  -score ne 0 legyen halál után
 */
 
 export default Obstacle;
