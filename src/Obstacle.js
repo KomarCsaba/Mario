@@ -132,7 +132,7 @@ function Obstacle() {
         jump();
       }
       if (event.key === "ArrowDown") {
-        console.log("Down") /*gugolás implementálás*/
+        console.log("Down") /*guggolás implementálás*/
       }
     };
   
