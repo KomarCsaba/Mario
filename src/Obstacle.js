@@ -30,6 +30,7 @@ function Obstacle() {
   };
 
   function createObstacle() {
+    /*TODO random obstacle typeba*/
     let type = obstacleType[0];
     obstacleRef.current.classList.add(type);
   }
