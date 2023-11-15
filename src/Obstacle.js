@@ -97,7 +97,7 @@ function Obstacle() {
       getComputedStyle(starRef.current).getPropertyValue("top")
     );
 
-    return (starLeft < 60 && starLeft > 0 && playerTop >= 360) || (starLeft < 60 && starLeft > 0 && playerBottom == 550 - starTop)
+    return (starLeft < 60 && starLeft > 0 && playerTop >= 360) || (starLeft < 60 && starLeft > 0 && playerBottom === 550 - starTop)
   };
 
   const handleCondition = () => {
