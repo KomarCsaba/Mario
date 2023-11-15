@@ -209,10 +209,10 @@ function Obstacle() {
   -kellenek a képek
   -méretre szabás
   -guggolás
-  -restart
   -több akadály
   -score ne 0 legyen halál után
-  gyorsulás ahogy nő a pontszám
+  -gyorsulás ahogy nő a pontszám
+  -amikor guggol akkor nem ugorhat
 */
 
 export default Obstacle;
