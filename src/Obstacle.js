@@ -142,12 +142,22 @@ function Obstacle() {
       document.removeEventListener("keydown", handleKeyPress);
     };
   }, []);
+  
 
-  const props = {
-    score: {score},
-    highScore: {highScore},
+  const restartGame = () => {
+    setScore(0);
+    setFeltetelTeljesult(false);
+    setEnd(false);
+    restartAnimation();
   };
-    return (
+/*
+  const props = {
+    score,
+    highScore,
+    onRestart,
+  };
+*/
+  return (
     <div className="game">
       <div className="score">
         <p>Score : {score}</p>
@@ -158,7 +168,7 @@ function Obstacle() {
         <div className="flexDiv">
           <div ref={obstacleRef}/>
           <div id="star" ref={starRef}/>
-          { end && <EndDiv {...props}/> /*and mark*/ }
+          { end && <EndDiv score={score} highScore={highScore} onRestart={restartGame} /> /*and mark*/ }
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import "./Obstacle.js";
 
-const EndDiv = ({score, highscore}) => {
+const EndDiv = ({score, highScore, onRestart}) => {
 
     const divStyle = {
       position: "absolute",
@@ -11,6 +11,7 @@ const EndDiv = ({score, highscore}) => {
       backgroundColor: "blue",
       zIndex: "9999",
       textAlign: "center",
+      fontFamily: "Inconsolata",
     }
   
     console.log("lefutottam");
@@ -18,7 +19,8 @@ const EndDiv = ({score, highscore}) => {
     return (
       <div style = {divStyle}>
         <h1>score: {score}</h1>
-        <h1>highscore: {highscore}</h1>
+        <h1>highscore: {highScore}</h1>
+        <button onClick = {onRestart}>Restart</button>
       </div>
     )
   };
