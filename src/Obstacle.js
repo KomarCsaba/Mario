@@ -7,6 +7,7 @@ function Obstacle() {
   const starRef = useRef();
   const [score, setScore] = useState(0);
   const [felteteTeljesult, setFeltetelTeljesult] = useState(false);
+  const [highScore, setHighScore] = useState(0);
 
   const jump = () => {
     if (!!playerRef.current && playerRef.current.classList !== "jump") {
@@ -130,6 +131,7 @@ function Obstacle() {
     <div className="game">
       <div className="score">
         <p>Score : {score}</p>
+        <p>High Score: {highScore}</p>
       </div>
       <div>
         <div id="player" ref={playerRef}/>
