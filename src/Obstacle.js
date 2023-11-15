@@ -60,6 +60,9 @@ function Obstacle() {
 
       if (obstacleLeft < 60 && obstacleLeft > 0 && playerTop >= 360) { //ekkor ütközik az akadályokkal
         alert(`Game Over! Your Score : ${score}`);
+        if (score > highScore) {
+          setHighScore(score);
+        }
         setScore(0); //a score-t 0-ra állítja
         restartAnimation(); //újrakezdődik a játék
       }
@@ -131,7 +134,7 @@ function Obstacle() {
     <div className="game">
       <div className="score">
         <p>Score : {score}</p>
-        <p>High Score: {highScore}</p>
+        <p id="high">High Score: {highScore}</p>
       </div>
       <div>
         <div id="player" ref={playerRef}/>

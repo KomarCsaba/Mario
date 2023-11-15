@@ -13,6 +13,11 @@
   text-align: center;
   background-color: blueviolet;
   padding-top: 20px;
+  display: flex;
+}
+
+#high{
+  margin-left: 50px;
 }
 
 p {
