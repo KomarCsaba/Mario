@@ -207,7 +207,7 @@ function Obstacle() {
   -kellenek a képek
   -méretre szabás
   -guggolás
-  -alertet javítani
+  -restart
   -több akadály
 */
 
