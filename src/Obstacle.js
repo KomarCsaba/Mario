@@ -115,7 +115,6 @@ function Obstacle() {
           setHighScore(score);
         }
         setEnd(true);
-        setScore(0); //a score-t 0-ra állítja
         restartAnimation(); //újrakezdődik a játék
       }
       }
