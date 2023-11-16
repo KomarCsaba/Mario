@@ -32,19 +32,9 @@ function Obstacle() {
     playerRef.current.classList.remove("playerGuggolas");
   };
 
-  const restartAnimation = () => {
-    obstacleRef.current.classList.remove("block");
-    createObstacle();
-    obstacleRef.current.classList.add("block");
-    starRef.current.classList.remove("starGlide");
-    setTimeout(() => {
-      starRef.current.classList.add("starGlide")
-    }, 1000);
-  };
-
   function createObstacle() {
-    /*TODO random obstacle typeba*/
     const randomIndex = Math.floor(Math.random() * obstacleType.length);
+    console.log(randomIndex)
     const type = obstacleType[randomIndex];
     obstacleRef.current.classList.add(type);
   }
@@ -52,9 +42,40 @@ function Obstacle() {
   const startAnimation = () => {
     createObstacle();
     obstacleRef.current.classList.add("block");
+  
+    // Adjust the animation duration based on the score
+    const animationDuration = `${5 - score * 1}s`; // Example: Speed increases as score goes up
+  
+    obstacleRef.current.style.animationDuration = animationDuration;
+    starRef.current.style.animationDuration = animationDuration;
+  
     setTimeout(() => {
-      starRef.current.classList.add("starGlide")
+      starRef.current.classList.add("starGlide");
     }, 1000);
+  };
+
+  const restartAnimation = () => {
+    obstacleRef.current.classList.remove("block");
+    obstacleRef.current.classList.add("block");
+  
+    // Adjust the animation duration based on the score
+    const animationDuration = `${5 - score * 1}s`; // Example: Speed increases as score goes up
+  
+    obstacleRef.current.style.animationDuration = animationDuration;
+    starRef.current.style.animationDuration = animationDuration;
+  
+    setTimeout(() => {
+      starRef.current.classList.add("starGlide");
+    }, 1000);
+  };
+  
+
+  const restartGame = () => {
+    setScore(0);
+    setFeltetelTeljesult(false);
+    setEnd(false);
+    createObstacle();
+    restartAnimation();
   };
 
   const restartGlide = () => {
@@ -108,7 +129,7 @@ function Obstacle() {
         getComputedStyle(obstacleRef.current).getPropertyValue("left")
       );
 
-      if (obstacleLeft.current.classList.contains("kicsi")) {
+      if (obstacleRef.current.classList.contains("kicsi")) {
         if (obstacleLeft < 60 && obstacleLeft > 0 && playerTop >= 360) { //ekkor ütközik az akadályokkal
         //alert(`Game Over! Your Score : ${score}`);
         if (score > highScore) {
@@ -182,14 +203,6 @@ function Obstacle() {
       document.removeEventListener("keydown", handleKeyPress);
     };
   }, []);
-  
-
-  const restartGame = () => {
-    setScore(0);
-    setFeltetelTeljesult(false);
-    setEnd(false);
-    restartAnimation();
-  };
 
     return (
     <div className="game">
