@@ -113,7 +113,6 @@ function Obstacle() {
           setHighScore(score);
         }
         setEnd(true);
-        setScore(0); //a score-t 0-ra állítja
         restartAnimation(); //újrakezdődik a játék
       }
     }, 10);
@@ -210,7 +209,6 @@ function Obstacle() {
   -méretre szabás
   -guggolás
   -több akadály
-  -score ne 0 legyen halál után
   -gyorsulás ahogy nő a pontszám
   -amikor guggol akkor nem ugorhat
 */
