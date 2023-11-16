@@ -1,6 +1,12 @@
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  box-sizing: border-box;
+}
+
 .game {
-  width: 1800px;
-  height: 900px;
+  width: 99vw; /*a képernyő 100%-a*/
+  height: 98vh; /*a képernyő 100%-a*/
   border: 1px solid black;
   margin: 0;
   padding: 0;
@@ -9,11 +15,14 @@
 .score {
   font-family: "Inconsolata";
   font-size: 30px;
-  height: 50px;
-  text-align: center;
+  height: 10vh; /*a képernyő 10%-a*/
+  line-height: 10vh; /*a képernyő 10%-a*/
   background-color: blueviolet;
-  padding-top: 20px;
   display: flex;
+}
+
+.text {
+  vertical-align: middle;
 }
 
 #high{
@@ -25,12 +34,12 @@ p {
 }
   
 .player {
-  width: 80px;
-  height: 90px;
+  width: 6vw;
+  height: 12vh;
   background-image: url(assets/trex.png);
-  background-size: 80px 90px;
+  background-size: 6vw 12vh ;
   position: relative;
-  top: 360px;
+  top: 75vh;
 }
 
 .playerGuggolas{
@@ -43,54 +52,78 @@ p {
   
 @keyframes jump {
   0% {
-    top: 360px;
+    top: 75vh;
+  }
+
+  10% {
+    top: 68vh;
+  }
+
+  20% {
+    top: 61vh;
   }
   
   30% {
-    top: 108px;
+    top: 54vh;
+  }
+
+  40% {
+    top: 47vh;
   }
   
   50% {
-    top: 180;
+    top: 40vh;
+  }
+
+  60% {
+    top: 47vh;
+  }
+
+  70% {
+    top: 54vh;
   }
   
   80% {
-    top: 288px;
+    top: 61vh;
+  }
+
+  90% {
+    top: 68vh;
   }
   
   100% {
-    top: 360px;
+    top: 75vh;
   }
 }
   
 .kicsi {
-  width: 40px;
-  height: 70px;
+  width: 6vw;
+  height: 6vh;
   position: relative;
   top: 290px;
   left: 980px;
   background-image: url(assets/cactus.png);
-  background-size: 40px 70px;
+  background-size: 6vw 6vh;
 }
 
 .nagy{
-  width: 60px;
-  height: 100px;
+  width: 7vw;
+  height: 9vh;
   position: relative;
   top: 270px;
   left: 980px;
   background-image: url(assets/bigCactus.png);
-  background-size: 60px 100px;
+  background-size: 7vw 9vh;
 }
 
 .lebego{
-  width: 100px;
-  height: 40px;
+  width: 5vw;
+  height: 5vh;
   position: relative;
-  top: 250px;
-  left: 980px;
+  top: 55vh;
+  left: 98vw;
   background-image: url(assets/bird.png);
-  background-size: 100px 40px;;
+  background-size: 5vw 5vh;
 }
 
 
@@ -99,13 +132,13 @@ p {
 }
 
 #star{
-  width: 40px;
-  height: 70px;
+  width: 5vw;
+  height: 7vh;
   position: relative;
-  top: 290px;
-  left: 980px;
+  top: 68vh;
+  left: 98vw;
   background-image: url(assets/star.png);
-  background-size: 40px 70px;
+  background-size: 5vw 7vh;
 }
 
 .starGlide{
@@ -114,11 +147,11 @@ p {
 
 @keyframes starGlide{
   0% {
-    left: 900px;
+    left: 95vw;
   }
   
   100% {
-    left: -5px;
+    left: 0vw;
   }
 }
 
@@ -128,10 +161,10 @@ p {
 
 @keyframes block {
   0% {
-    left: 980px;
+    left: 95vw;
   }
   
   100% {
-    left: -5px;
+    left: 0vw;
   }
 }

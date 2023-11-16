@@ -162,7 +162,7 @@ function Obstacle() {
       getComputedStyle(starRef.current).getPropertyValue("top")
     );
 
-    return (starLeft < 60 && starLeft > 0 && playerTop >= 360) || (starLeft < 60 && starLeft > 0 && playerBottom === 550 - starTop)
+    return (starLeft < 60 && starLeft > 0 && playerTop >= 360) || (starLeft < 60 && starLeft > 0 && playerBottom === 550 - starTop);
   };
 
   const handleCondition = () => {
@@ -207,8 +207,8 @@ function Obstacle() {
     return (
     <div className="game">
       <div className="score">
-        <p>Score : {score}</p>
-        <p id="high">High Score: {highScore}</p>
+        <p className="text" >Score : {score}</p>
+        <p id="high" className="text" >High Score: {highScore}</p>
       </div>
       <div>
       <div className={`player ${isCrouching ? 'playerGuggolas' : ''}`} ref={playerRef} />
