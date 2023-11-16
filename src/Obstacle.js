@@ -225,6 +225,7 @@ function Obstacle() {
   -guggolás
   -több akadály
   -gyorsulás ahogy nő a pontszám
+  -score ne változzon restart képernyőnél (stop animation metódus?!)
 */
 
 export default Obstacle;
