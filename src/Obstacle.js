@@ -210,7 +210,6 @@ function Obstacle() {
   -guggolás
   -több akadály
   -gyorsulás ahogy nő a pontszám
-  -amikor guggol akkor nem ugorhat
 */
 
 export default Obstacle;
