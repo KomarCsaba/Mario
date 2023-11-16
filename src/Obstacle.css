@@ -1,9 +1,9 @@
 .game {
-  width: 1000px;
-  height: 550px;
+  width: 1800px;
+  height: 900px;
   border: 1px solid black;
-  margin: auto;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 .score {

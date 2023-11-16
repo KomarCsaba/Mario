@@ -108,27 +108,19 @@ function Obstacle() {
         getComputedStyle(obstacleRef.current).getPropertyValue("left")
       );
 
-      if (obstacleRef.current.classList.contains("kicsi")) {
+      if (obstacleLeft.current.classList.contains("kicsi")) {
         if (obstacleLeft < 60 && obstacleLeft > 0 && playerTop >= 360) { //ekkor ütközik az akadályokkal
-          //alert(`Game Over! Your Score : ${score}`);
-          if (score > highScore) {
-            setHighScore(score);
-          }
-          setEnd(true);
-          setScore(0); //a score-t 0-ra állítja
-          restartAnimation(); //újrakezdődik a játék
+        //alert(`Game Over! Your Score : ${score}`);
+        if (score > highScore) {
+          setHighScore(score);
         }
-      
-      } else if (obstacleRef.current.classList.contains("nagy")) {
-        if (obstacleLeft < 60 && obstacleLeft > 0 && playerTop >= ) {
-          
-        }
-
-      } else if (obstacleRef.current.classList.contains("lebego")) {
-
+        setEnd(true);
+        setScore(0); //a score-t 0-ra állítja
+        restartAnimation(); //újrakezdődik a játék
       }
-
-      }, 10);
+      }
+      
+    }, 10);
 
     return () => clearInterval(isAlive);
   });
@@ -223,9 +215,7 @@ function Obstacle() {
   -méretre szabás
   -guggolás
   -több akadály
-  -score ne 0 legyen halál után
   -gyorsulás ahogy nő a pontszám
-  -amikor guggol akkor nem ugorhat
 */
 
 export default Obstacle;
