@@ -67,6 +67,10 @@ function Obstacle() {
     }, 1000);
   };
 
+  const stopAnimation = () => {
+    obstacleRef.current.classList.remove("block");
+  }
+
   const restartGame = () => {
     setScore(0);
     setFeltetelTeljesult(false);
