@@ -168,7 +168,7 @@ function Obstacle() {
         jump();
       }
       if (event.key === "ArrowDown") {
-        console.log("Down") /*gugolás implementálás*/
+        console.log("Down") /*guggolás implementálás*/
       }
     };
   
@@ -197,7 +197,7 @@ function Obstacle() {
         <div className="flexDiv">
           <div ref={obstacleRef}/>
           <div id="star" ref={starRef}/>
-          { end && <EndDiv score={score} highScore={highScore} onRestart={restartGame} /> /*and mark*/ }
+          { end && <EndDiv score = {score} highScore = {highScore} onRestart = {restartGame} />  }
         </div>
       </div>
     </div>
