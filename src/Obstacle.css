@@ -142,29 +142,29 @@ p {
 }
 
 .starGlide{
-  animation: starGlide 5s infinite linear;
+  animation: starGlide 7s infinite linear;
 }
 
 @keyframes starGlide{
   0% {
-    left: 900px;
+    left: 95vw;
   }
   
   100% {
-    left: -5px;
+    left: 0vw;
   }
 }
 
 .block {
-  animation: block 5s infinite linear;
+  animation: block 7s infinite linear;
 }
 
 @keyframes block {
   0% {
-    left: 980px;
+    left: 95vw;
   }
   
   100% {
-    left: -5px;
+    left: 0vw;
   }
 }
