@@ -74,11 +74,23 @@ p {
 }
 
 .nagy{
-
+  width: 60px;
+  height: 100px;
+  position: relative;
+  top: 270px;
+  left: 980px;
+  background-image: url(assets/bigCactus.png);
+  background-size: 60px 100px;
 }
 
 .lebego{
-
+  width: 100px;
+  height: 40px;
+  position: relative;
+  top: 250px;
+  left: 980px;
+  background-image: url(assets/bird.png);
+  background-size: 100px 40px;;
 }
 
 

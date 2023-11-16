@@ -16,7 +16,7 @@ function Obstacle() {
   const jump = () => {
     if (!!playerRef.current && playerRef.current.classList !== "jump") {
       playerRef.current.classList.add("jump");
-      setTimeout(function () {
+      setTimeout(() => {
         playerRef.current.classList.remove("jump");
       }, 1000);
     }
@@ -44,7 +44,8 @@ function Obstacle() {
 
   function createObstacle() {
     /*TODO random obstacle typeba*/
-    let type = obstacleType[0];
+    const randomIndex = Math.floor(Math.random() * obstacleType.length);
+    const type = obstacleType[randomIndex];
     obstacleRef.current.classList.add(type);
   }
 
@@ -93,7 +94,7 @@ function Obstacle() {
 
   useEffect(() => {
 
-    const isAlive = setInterval(function () {
+    const isAlive = setInterval(() => {
 
       const playerTop = parseInt(
         getComputedStyle(playerRef.current).getPropertyValue("top")
@@ -107,16 +108,27 @@ function Obstacle() {
         getComputedStyle(obstacleRef.current).getPropertyValue("left")
       );
 
-      if (obstacleLeft < 60 && obstacleLeft > 0 && playerTop >= 360) { //ekkor ütközik az akadályokkal
-        //alert(`Game Over! Your Score : ${score}`);
-        if (score > highScore) {
-          setHighScore(score);
+      if (obstacleRef.current.classList.contains("kicsi")) {
+        if (obstacleLeft < 60 && obstacleLeft > 0 && playerTop >= 360) { //ekkor ütközik az akadályokkal
+          //alert(`Game Over! Your Score : ${score}`);
+          if (score > highScore) {
+            setHighScore(score);
+          }
+          setEnd(true);
+          setScore(0); //a score-t 0-ra állítja
+          restartAnimation(); //újrakezdődik a játék
         }
-        setEnd(true);
-        setScore(0); //a score-t 0-ra állítja
-        restartAnimation(); //újrakezdődik a játék
+      
+      } else if (obstacleRef.current.classList.contains("nagy")) {
+        if (obstacleLeft < 60 && obstacleLeft > 0 && playerTop >= ) {
+          
+        }
+
+      } else if (obstacleRef.current.classList.contains("lebego")) {
+
       }
-    }, 10);
+
+      }, 10);
 
     return () => clearInterval(isAlive);
   });
@@ -187,6 +199,7 @@ function Obstacle() {
     setEnd(false);
     restartAnimation();
   };
+
     return (
     <div className="game">
       <div className="score">
