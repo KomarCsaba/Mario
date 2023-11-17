@@ -19,6 +19,9 @@ const Obstacle = () => {
     const randomIndex = Math.floor(Math.random() * obstacleTypes.length);
     console.log(randomIndex)
     const type = obstacleTypes[randomIndex];
+    obstacleTypes.forEach((type) => {
+      obstacleRef.current.classList.remove(type);
+    });
     obstacleRef.current.classList.add(type);
   };
 
