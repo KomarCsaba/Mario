@@ -13,7 +13,7 @@ const Obstacle = () => {
   const [highScore, setHighScore] = useState(0);
   const [end, setEnd] = useState(false);
   const [isCrouching, setIsCrouching] = useState(false);
-  const [feltetelTeljesult, setFeltetelTeljesult] = useState(false);
+  const [pontNoveles, setPontNoveles] = useState(false);
 
   const createObstacle = () => {
     const randomIndex = Math.floor(Math.random() * obstacleTypes.length);
@@ -25,8 +25,25 @@ const Obstacle = () => {
     obstacleRef.current.classList.add(type);
   };
 
-  useEffect(() => {
+  const startAnimation = () => {
     createObstacle();
+    if (obstacleRef.current.classList.contains("block")) {
+        obstacleRef.current.classList.remove("block");
+    }
+    obstacleRef.current.classList.add("block");
+    setTimeout(() => {
+      starRef.current.classList.add("starGlide");
+    }, 1000);
+  };
+
+  const restartGame = () => {
+    setScore(0);
+    setPontNoveles(false);
+    setEnd(false);
+    startAnimation();
+  };
+
+  useEffect(() => {
     startAnimation();
   }, []);
 
@@ -47,11 +64,6 @@ const Obstacle = () => {
       document.removeEventListener("keydown", handleKeyPress);
       document.removeEventListener("keyup", handleKeyUp);
     };
-  }, []);
-
-  useEffect(() => {
-    const intervalId = setupInterval();
-    return () => clearInterval(intervalId);
   }, []);
 
   useEffect(() => {
@@ -79,15 +91,20 @@ const Obstacle = () => {
     return () => clearInterval(isAlive);
   }, [score, highScore]);
 
+  
+  const handleCollision = () => {
+    if (score > highScore) {
+      setHighScore(score);
+    }
+    setEnd(true);
+  };
+
   useEffect(() => {
     const blockElement = obstacleRef.current;
-  
     const handleAnimationIteration = () => {
       createObstacle();
     };
-  
     blockElement.addEventListener("animationiteration", handleAnimationIteration);
-  
     return () => {
       blockElement.removeEventListener("animationiteration", handleAnimationIteration);
     };
@@ -112,32 +129,8 @@ const Obstacle = () => {
     playerRef.current.classList.remove("playerGuggolas");
   };
 
-  const startAnimation = () => {
-    createObstacle();
-    obstacleRef.current.classList.add("block");
-    setTimeout(() => {
-      starRef.current.classList.add("starGlide");
-    }, 1000);
-  };
-
-  const restartAnimation = () => {
-    obstacleRef.current.classList.remove("block");
-    obstacleRef.current.classList.add("block");
-    setTimeout(() => {
-      starRef.current.classList.add("starGlide");
-    }, 1000);
-  };
-
   const stopAnimation = () => {
     obstacleRef.current.classList.remove("block");
-  };
-
-  const restartGame = () => {
-    setScore(0);
-    setFeltetelTeljesult(false);
-    setEnd(false);
-    createObstacle();
-    restartAnimation();
   };
 
   const restartGlide = () => {
@@ -145,21 +138,24 @@ const Obstacle = () => {
     starRef.current.classList.add("starGlide");
   };
 
+  //Pontszerzes
+  useEffect(() => {
+    const intervalId = setupInterval();
+    return () => clearInterval(intervalId);
+  }, []);
   const setupInterval = () => {
     const intervalId = setInterval(handleCondition, 300);
     return intervalId;
   };
-
   const handleCondition = () => {
     if (checkCondition()) {
       setScore((prevScore) => prevScore + 1);
-      setFeltetelTeljesult(true);
+      setPontNoveles(true);
       restartGlide();
     } else {
-      setFeltetelTeljesult(false);
+      setPontNoveles(false);
     }
   };
-
   const checkCondition = () => {
     const starLeft = parseFloat(getComputedStyle(starRef.current).getPropertyValue("left"));
     const playerBottom = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("bottom"));
@@ -167,37 +163,7 @@ const Obstacle = () => {
 
     return ((starLeft < 99 && starLeft > 0 && playerBottom >= 98 - starTop));
   };
-
-  const checkCollision = () => {
-    const playerTop = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("top"));
-    const playerBottom = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("bottom"));
-    const playerRight = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("right"));
-
-    const obstacleLeft = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("left"));
-    const obstacleTop = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("top"));
-    const obstacleBottom = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("bottom"));
-
-    if (obstacleRef.current.classList.contains("kicsi") || obstacleRef.current.classList.contains("nagy")) {
-      if (obstacleLeft <= 99 - playerRight && playerBottom >= 98 - obstacleTop) {
-        handleCollision();
-      }
-    }
-
-    if (obstacleRef.current.classList.contains("lebego")) {
-      if (obstacleLeft <= 99 - playerRight && playerTop >= 98 - obstacleBottom) {
-        handleCollision();
-      }
-    }
-  };
-
-  const handleCollision = () => {
-    if (score > highScore) {
-      setHighScore(score);
-    }
-    setEnd(true);
-    restartAnimation();
-  };
-
+  //idáig
   return (
     <div className="game">
       <div className="score">
@@ -209,7 +175,7 @@ const Obstacle = () => {
         <div className="flexDiv">
           <div ref={obstacleRef} className="block"/>
           <div id="star" ref={starRef} />
-          {end && !feltetelTeljesult && <EndDiv score={score} highScore={highScore} onRestart={restartGame} />}
+          {end && !pontNoveles && <EndDiv score={score} highScore={highScore} onRestart={restartGame} />}
         </div>
       </div>
     </div>
@@ -220,7 +186,7 @@ const Obstacle = () => {
   -kellenek a képek
   -méretre szabás
   -guggolás
-  -gyorsulás ahogy nő a pontszám
+  -gyorsulás ahogy nő a pont
   -score ne változzon restart képernyőnél (stop animation metódus?!)
 */
 
