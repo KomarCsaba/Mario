@@ -8,6 +8,7 @@ const Obstacle = () => {
   const playerRef = useRef();
   const obstacleRef = useRef();
   const starRef = useRef();
+  const gameRef = useRef();
 
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
@@ -17,7 +18,6 @@ const Obstacle = () => {
 
   const createObstacle = () => {
     const randomIndex = Math.floor(Math.random() * obstacleTypes.length);
-    console.log(randomIndex)
     const type = obstacleTypes[randomIndex];
     obstacleTypes.forEach((type) => {
       obstacleRef.current.classList.remove(type);
@@ -74,9 +74,16 @@ const Obstacle = () => {
       const obstacleLeft = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("left"));
       const obstacleTop = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("top"));
       const obstacleBottom = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("bottom"));
+
+     
   
       if (obstacleRef.current.classList.contains("kicsi")) {
         if (obstacleLeft <= 50 - playerRight && obstacleLeft > 0 && playerBottom <= 98 - obstacleTop) {
+          console.log(parseFloat(getComputedStyle(gameRef.current).getPropertyValue("height")));
+          console.log("playerbottom: ", playerBottom);
+          console.log("obstacleTop: ", obstacleTop);
+          console.log("playerTop: ", playerTop);
+          console.log("obstacleBottom: ", obstacleBottom);
           handleCollision();
         }
       }
@@ -171,7 +178,7 @@ const Obstacle = () => {
   };
   //idáig
   return (
-    <div className="game">
+    <div className="game" ref={gameRef}>
       <div className="score">
         <p>Score: {score}</p>
         <p id="high">High Score: {highScore}</p>
