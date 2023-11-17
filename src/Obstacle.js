@@ -44,25 +44,12 @@ function Obstacle() {
 
   useEffect(() => {
     const isAlive = setInterval(() => {
-      const playerTop = parseFloat(
-        getComputedStyle(playerRef.current).getPropertyValue("top")
-      );
-      const playerBottom = parseFloat(
-        getComputedStyle(playerRef.current).getPropertyValue("bottom")
-      );
-      const playerRight = parseFloat(
-        getComputedStyle(playerRef.current).getPropertyValue("right")
-      );
-  
-      const obstacleLeft = parseFloat(
-        getComputedStyle(obstacleRef.current).getPropertyValue("left")
-      );
-      const obstacleTop = parseFloat(
-        getComputedStyle(obstacleRef.current).getPropertyValue("top")
-      );
-      const obstacleBottom = parseFloat(
-        getComputedStyle(obstacleRef.current).getPropertyValue("bottom")
-      );
+      const playerTop = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("top"));
+      const playerBottom = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("bottom"));
+      const playerRight = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("right"));
+      const obstacleLeft = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("left"));
+      const obstacleTop = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("top"));
+      const obstacleBottom = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("bottom"));
   
       if (obstacleRef.current.classList.contains("kicsi") || obstacleRef.current.classList.contains("nagy")) {
         if (obstacleLeft <= 99 - playerRight && playerBottom >= 98 - obstacleTop) {
@@ -171,15 +158,11 @@ function Obstacle() {
   };
 
   const checkCondition = () => {
-    const playerTop = parseInt(getComputedStyle(playerRef.current).getPropertyValue("top"));
-    const starLeft = parseInt(getComputedStyle(starRef.current).getPropertyValue("left"));
-    const playerBottom = parseInt(getComputedStyle(playerRef.current).getPropertyValue("bottom"));
-    const starTop = parseInt(getComputedStyle(starRef.current).getPropertyValue("top"));
+    const starLeft = parseFloat(getComputedStyle(starRef.current).getPropertyValue("left"));
+    const playerBottom = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("bottom"));
+    const starTop = parseFloat(getComputedStyle(starRef.current).getPropertyValue("top"));
 
-    return (
-      (starLeft < 60 && starLeft > 0 && playerTop >= 360) ||
-      (starLeft < 60 && starLeft > 0 && playerBottom === 550 - starTop)
-    );
+    return ((starLeft < 99 && starLeft > 0 && playerBottom >= 98 - starTop));
   };
 
   return (
