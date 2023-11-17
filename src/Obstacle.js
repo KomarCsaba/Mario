@@ -17,10 +17,11 @@ const Obstacle = () => {
 
   const createObstacle = () => {
     const randomIndex = Math.floor(Math.random() * obstacleTypes.length);
+    console.log(randomIndex)
     const type = obstacleTypes[randomIndex];
     obstacleRef.current.classList.add(type);
   };
-  
+
   useEffect(() => {
     createObstacle();
     startAnimation();
