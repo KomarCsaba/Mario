@@ -101,7 +101,7 @@ p {
   height: 6vh;
   position: relative;
   top: 290px;
-  left: 980px;
+  left: 100vw;
   background-image: url(assets/cactus.png);
   background-size: 6vw 6vh;
 }
@@ -111,7 +111,7 @@ p {
   height: 9vh;
   position: relative;
   top: 270px;
-  left: 980px;
+  left: 100vw;
   background-image: url(assets/bigCactus.png);
   background-size: 7vw 9vh;
 }
@@ -121,7 +121,7 @@ p {
   height: 5vh;
   position: relative;
   top: 55vh;
-  left: 98vw;
+  left: 100vw;
   background-image: url(assets/bird.png);
   background-size: 5vw 5vh;
 }
@@ -136,7 +136,7 @@ p {
   height: 7vh;
   position: relative;
   top: 68vh;
-  left: 98vw;
+  left: 100vw;
   background-image: url(assets/star.png);
   background-size: 5vw 7vh;
 }
