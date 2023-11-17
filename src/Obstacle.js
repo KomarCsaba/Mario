@@ -15,6 +15,12 @@ const Obstacle = () => {
   const [isCrouching, setIsCrouching] = useState(false);
   const [feltetelTeljesult, setFeltetelTeljesult] = useState(false);
 
+  const createObstacle = () => {
+    const randomIndex = Math.floor(Math.random() * obstacleTypes.length);
+    const type = obstacleTypes[randomIndex];
+    obstacleRef.current.classList.add(type);
+  };
+  
   useEffect(() => {
     createObstacle();
     startAnimation();
@@ -52,6 +58,20 @@ const Obstacle = () => {
     return () => clearInterval(isAlive);
   }, [score, highScore]);
 
+  useEffect(() => {
+    const blockElement = obstacleRef.current;
+  
+    const handleAnimationIteration = () => {
+      createObstacle();
+    };
+  
+    blockElement.addEventListener("animationiteration", handleAnimationIteration);
+  
+    return () => {
+      blockElement.removeEventListener("animationiteration", handleAnimationIteration);
+    };
+  }, [createObstacle]);
+
   const jump = () => {
     if (!!playerRef.current && !playerRef.current.classList.contains("jump")) {
       playerRef.current.classList.add("jump");
@@ -69,12 +89,6 @@ const Obstacle = () => {
   const crouchStop = () => {
     setIsCrouching(false);
     playerRef.current.classList.remove("playerGuggolas");
-  };
-
-  const createObstacle = () => {
-    const randomIndex = Math.floor(Math.random() * obstacleTypes.length);
-    const type = obstacleTypes[randomIndex];
-    obstacleRef.current.classList.add(type);
   };
 
   const startAnimation = () => {
@@ -184,7 +198,7 @@ const Obstacle = () => {
       <div>
         <div className={`player ${isCrouching ? "playerGuggolas" : ""}`} ref={playerRef} />
         <div className="flexDiv">
-          <div ref={obstacleRef} />
+          <div ref={obstacleRef} className="block"/>
           <div id="star" ref={starRef} />
           {end && !feltetelTeljesult && <EndDiv score={score} highScore={highScore} onRestart={restartGame} />}
         </div>
