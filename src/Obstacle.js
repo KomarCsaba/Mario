@@ -220,5 +220,4 @@ const Obstacle = () => {
     </div>
   );
 };
-
 export default Obstacle;
