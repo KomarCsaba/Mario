@@ -156,7 +156,7 @@ p {
 }
 
 .block {
-  animation: block /*var(--animation-duration)*/ infinite linear;
+  animation: block var(--animation-duration) infinite linear;
 }
 
 @keyframes block {
