@@ -8,7 +8,6 @@ const Obstacle = () => {
   const playerRef = useRef();
   const obstacleRef = useRef();
   const starRef = useRef();
-
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [end, setEnd] = useState(false);
@@ -25,7 +24,6 @@ const Obstacle = () => {
       if (event.key === " " || event.key === "ArrowUp") jump();
       if (event.key === "ArrowDown") crouchStart();
     };
-
     const handleKeyUp = (event) => {
       if (event.key === "ArrowDown") crouchStop();
     };
@@ -162,28 +160,16 @@ const Obstacle = () => {
     const playerTop = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("top"));
     const playerBottom = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("bottom"));
     const playerRight = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("right"));
-
     const obstacleLeft = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("left"));
     const obstacleTop = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("top"));
     const obstacleBottom = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("bottom"));
 
-    if (obstacleRef.current.classList.contains("kicsi") || obstacleRef.current.classList.contains("nagy")) {
-      if (obstacleLeft <= 99 - playerRight && playerBottom >= 98 - obstacleTop) {
-        handleCollision();
-      }
-    }
-
-    if (obstacleRef.current.classList.contains("lebego")) {
-      if (obstacleLeft <= 99 - playerRight && playerTop >= 98 - obstacleBottom) {
-        handleCollision();
-      }
-    }
+    if ((obstacleRef.current.classList.contains("kicsi") || obstacleRef.current.classList.contains("nagy")) && (obstacleLeft <= 99 - playerRight && playerBottom >= 98 - obstacleTop)) handleCollision();
+    if (obstacleRef.current.classList.contains("lebego") && (obstacleLeft <= 99 - playerRight && playerTop >= 98 - obstacleBottom)) handleCollision();
   };
 
   const handleCollision = () => {
-    if (score > highScore) {
-      setHighScore(score);
-    }
+    if (score > highScore) setHighScore(score);
     setEnd(true);
     restartAnimation();
   };
