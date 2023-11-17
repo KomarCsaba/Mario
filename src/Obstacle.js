@@ -84,6 +84,7 @@ function Obstacle() {
   }
 
   useEffect(() => {
+    console.log("Component mounted");
     startAnimation();
   }, []);
 
