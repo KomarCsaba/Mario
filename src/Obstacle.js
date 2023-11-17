@@ -13,8 +13,37 @@ function Obstacle() {
   const [end, setEnd] = useState(false);
   const [isCrouching, setIsCrouching] = useState(false);
 
+  useEffect(() => {
+    createObstacle();
+    startAnimation();
+  }, []);
+
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (event.key === " " || event.key === "ArrowUp") jump();
+      if (event.key === "ArrowDown") crouchStart();
+    };
+
+    const handleKeyUp = (event) => {
+      if (event.key === "ArrowDown") crouchStop();
+    };
+
+    document.addEventListener("keydown", handleKeyPress);
+    document.addEventListener("keyup", handleKeyUp);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+      document.removeEventListener("keyup", handleKeyUp);
+    };
+  }, []);
+
+  useEffect(() => {
+    const intervalId = setupInterval();
+    return () => clearInterval(intervalId);
+  }, []);
+
   const jump = () => {
-    if (!!playerRef.current && playerRef.current.classList !== "jump") {
+    if (!!playerRef.current && !playerRef.current.classList.contains("jump")) {
       playerRef.current.classList.add("jump");
       setTimeout(() => {
         playerRef.current.classList.remove("jump");
@@ -32,22 +61,19 @@ function Obstacle() {
     playerRef.current.classList.remove("playerGuggolas");
   };
 
-  function createObstacle() {
+  const createObstacle = () => {
     const randomIndex = Math.floor(Math.random() * obstacleType.length);
-    console.log(randomIndex)
     const type = obstacleType[randomIndex];
     obstacleRef.current.classList.add(type);
-  }
+  };
 
   const startAnimation = () => {
     createObstacle();
     obstacleRef.current.classList.add("block");
-  
-    // Adjust the animation duration based on the score
-    const animationDuration = `${5 - score * 0.5}s`; // Example: Speed increases as score goes up
-  
+
+    const animationDuration = `${5 - score * 0.5}s`;
     document.documentElement.style.setProperty("--animation-duration", animationDuration);
-  
+
     setTimeout(() => {
       starRef.current.classList.add("starGlide");
     }, 1000);
@@ -56,12 +82,10 @@ function Obstacle() {
   const restartAnimation = () => {
     obstacleRef.current.classList.remove("block");
     obstacleRef.current.classList.add("block");
-  
-    // Adjust the animation duration based on the score
-    const animationDuration = `${5 - score * 0.5}s`; // Example: Speed increases as score goes up
-  
+
+    const animationDuration = `${5 - score * 0.5}s`;
     document.documentElement.style.setProperty("--animation-duration", animationDuration);
-  
+
     setTimeout(() => {
       starRef.current.classList.add("starGlide");
     }, 1000);
@@ -69,7 +93,7 @@ function Obstacle() {
 
   const stopAnimation = () => {
     obstacleRef.current.classList.remove("block");
-  }
+  };
 
   const restartGame = () => {
     setScore(0);
@@ -82,88 +106,11 @@ function Obstacle() {
   const restartGlide = () => {
     starRef.current.classList.remove("starGlide");
     starRef.current.classList.add("starGlide");
-  }
+  };
 
-  useEffect(() => {
-    startAnimation();
-  }, []);
-
-  useEffect(() => {
-    const handleKeyPress = (event) => {
-      if (event.key === " " || event.key === "ArrowUp") {
-        jump();
-      }
-      if (event.key === "ArrowDown") {
-        crouchStart();
-      }
-    };
-
-    const handleKeyUp = (event) => {
-      if (event.key === "ArrowDown") {
-        crouchStop();
-      }
-    };
-
-    document.addEventListener("keydown", handleKeyPress);
-    document.addEventListener("keyup", handleKeyUp);
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyPress);
-      document.removeEventListener("keyup", handleKeyUp);
-    };
-  }, []);
-
-
-  useEffect(() => {
-
-    const isAlive = setInterval(() => {
-
-      const playerTop = parseInt(
-        getComputedStyle(playerRef.current).getPropertyValue("top")
-      );
-
-      const playerBottom = parseInt(
-        getComputedStyle(playerRef.current).getPropertyValue("bottom")
-      );
-
-      const obstacleLeft = parseInt(
-        getComputedStyle(obstacleRef.current).getPropertyValue("left")
-      );
-
-      if (obstacleRef.current.classList.contains("kicsi")) {
-        if (obstacleLeft < 60 && obstacleLeft > 0 && playerTop >= 360) { //ekkor ütközik az akadályokkal
-        //alert(`Game Over! Your Score : ${score}`);
-        if (score > highScore) {
-          setHighScore(score);
-        }
-        setEnd(true);
-        restartAnimation(); //újrakezdődik a játék
-      }
-      }
-      
-    }, 10);
-
-    return () => clearInterval(isAlive);
-  });
-
-  const checkCondition = () => {
-    const playerTop = parseInt(
-      getComputedStyle(playerRef.current).getPropertyValue('top')
-    );
-
-    const starLeft = parseInt(
-      getComputedStyle(starRef.current).getPropertyValue('left')
-    );
-
-    const playerBottom = parseInt(
-      getComputedStyle(playerRef.current).getPropertyValue("bottom")
-    );
-
-    const starTop = parseInt(
-      getComputedStyle(starRef.current).getPropertyValue("top")
-    );
-
-    return (starLeft < 60 && starLeft > 0 && playerTop >= 360) || (starLeft < 60 && starLeft > 0 && playerBottom === 550 - starTop)
+  const setupInterval = () => {
+    const intervalId = setInterval(handleCondition, 300);
+    return intervalId;
   };
 
   const handleCondition = () => {
@@ -176,60 +123,34 @@ function Obstacle() {
     }
   };
 
-  const setupInterval = () => {
-    // Set up an interval to check the condition every 100 milliseconds
-    const intervalId = setInterval(handleCondition, 300);
-    return intervalId;
-  };
-
-  useEffect(() => {
-    const intervalId = setupInterval();
-    // Clean up the interval when the component is unmounted
-    return () => clearInterval(intervalId);
-  }, []);
-
-  useEffect(() => {
-    const handleKeyPress = (event) => {
-      if (event.key === " " || event.key === "ArrowUp") {
-        jump();
-      }
-      if (event.key === "ArrowDown") {
-        console.log("Down") /*guggolás implementálás*/
-      }
-    };
-  
-    document.addEventListener("keydown", handleKeyPress);
-  
-    return () => {
-      document.removeEventListener("keydown", handleKeyPress);
-    };
-  }, []);
+  const checkCondition = () => {
+    const playerTop = parseInt(getComputedStyle(playerRef.current).getPropertyValue("top"));
+    const starLeft = parseInt(getComputedStyle(starRef.current).getPropertyValue("left"));
+    const playerBottom = parseInt(getComputedStyle(playerRef.current).getPropertyValue("bottom"));
+    const starTop = parseInt(getComputedStyle(starRef.current).getPropertyValue("top"));
 
     return (
+      (starLeft < 60 && starLeft > 0 && playerTop >= 360) ||
+      (starLeft < 60 && starLeft > 0 && playerBottom === 550 - starTop)
+    );
+  };
+
+  return (
     <div className="game">
       <div className="score">
-        <p>Score : {score}</p>
+        <p>Score: {score}</p>
         <p id="high">High Score: {highScore}</p>
       </div>
       <div>
-      <div className={`player ${isCrouching ? 'playerGuggolas' : ''}`} ref={playerRef} />
+        <div className={`player ${isCrouching ? "playerGuggolas" : ""}`} ref={playerRef} />
         <div className="flexDiv">
-          <div ref={obstacleRef}/>
-          <div id="star" ref={starRef}/>
-          { end && <EndDiv score = {score} highScore = {highScore} onRestart = {restartGame} />  }
+          <div ref={obstacleRef} />
+          <div id="star" ref={starRef} />
+          {end && !felteteTeljesult && <EndDiv score={score} highScore={highScore} onRestart={restartGame} />}
         </div>
       </div>
     </div>
   );
 }
-
-/*
-  -kellenek a képek
-  -méretre szabás
-  -guggolás
-  -több akadály
-  -gyorsulás ahogy nő a pontszám
-  -score ne változzon restart képernyőnél (stop animation metódus?!)
-*/
 
 export default Obstacle;
