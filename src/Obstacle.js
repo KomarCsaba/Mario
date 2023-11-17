@@ -44,10 +44,9 @@ function Obstacle() {
     obstacleRef.current.classList.add("block");
   
     // Adjust the animation duration based on the score
-    const animationDuration = `${5 - score * 1}s`; // Example: Speed increases as score goes up
+    const animationDuration = `${5 - score * 0.5}s`; // Example: Speed increases as score goes up
   
-    obstacleRef.current.style.animationDuration = animationDuration;
-    starRef.current.style.animationDuration = animationDuration;
+    document.documentElement.style.setProperty("--animation-duration", animationDuration);
   
     setTimeout(() => {
       starRef.current.classList.add("starGlide");
@@ -59,16 +58,18 @@ function Obstacle() {
     obstacleRef.current.classList.add("block");
   
     // Adjust the animation duration based on the score
-    const animationDuration = `${5 - score * 1}s`; // Example: Speed increases as score goes up
+    const animationDuration = `${5 - score * 0.5}s`; // Example: Speed increases as score goes up
   
-    obstacleRef.current.style.animationDuration = animationDuration;
-    starRef.current.style.animationDuration = animationDuration;
+    document.documentElement.style.setProperty("--animation-duration", animationDuration);
   
     setTimeout(() => {
       starRef.current.classList.add("starGlide");
     }, 1000);
   };
-  
+
+  const stopAnimation = () => {
+    obstacleRef.current.classList.remove("block");
+  }
 
   const restartGame = () => {
     setScore(0);
@@ -163,7 +164,7 @@ function Obstacle() {
       getComputedStyle(starRef.current).getPropertyValue("top")
     );
 
-    return (starLeft < 60 && starLeft > 0 && playerTop >= 360) || (starLeft < 60 && starLeft > 0 && playerBottom === 550 - starTop);
+    return (starLeft < 60 && starLeft > 0 && playerTop >= 360) || (starLeft < 60 && starLeft > 0 && playerBottom === 550 - starTop)
   };
 
   const handleCondition = () => {
@@ -208,8 +209,8 @@ function Obstacle() {
     return (
     <div className="game">
       <div className="score">
-        <p className="text" >Score : {score}</p>
-        <p id="high" className="text" >High Score: {highScore}</p>
+        <p>Score : {score}</p>
+        <p id="high">High Score: {highScore}</p>
       </div>
       <div>
       <div className={`player ${isCrouching ? 'playerGuggolas' : ''}`} ref={playerRef} />
@@ -229,6 +230,7 @@ function Obstacle() {
   -guggolás
   -több akadály
   -gyorsulás ahogy nő a pontszám
+  -score ne változzon restart képernyőnél (stop animation metódus?!)
 */
 
 export default Obstacle;
