@@ -1,11 +1,12 @@
 body {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
   box-sizing: border-box;
 }
 
 .game {
-  width: 99vw;
-  height: 98vh;
+  width: 99vw; /*a képernyő 100%-a*/
+  height: 98vh; /*a képernyő 100%-a*/
   border: 1px solid black;
   margin: 0;
   padding: 0;
@@ -14,8 +15,8 @@ body {
 .score {
   font-family: "Inconsolata";
   font-size: 30px;
-  height: 10vh;
-  line-height: 10vh;
+  height: 10vh; /*a képernyő 10%-a*/
+  line-height: 10vh; /*a képernyő 10%-a*/
   background-color: blueviolet;
   display: flex;
 }
@@ -24,102 +25,31 @@ body {
   vertical-align: middle;
 }
 
-#high {
+#high{
   margin-left: 50px;
 }
 
 p {
-  margin: 0;
+  margin: 0px;
 }
-
+  
 .player {
   width: 6vw;
   height: 12vh;
   background-image: url(assets/trex.png);
-  background-size: 6vw 12vh;
+  background-size: 6vw 12vh ;
   position: relative;
   top: 75vh;
 }
 
-.playerGuggolas {}
+.playerGuggolas{
 
+}
+  
 .jump {
   animation: jump 1s linear;
 }
-
-.cactus,
-.bigCactus,
-.bird {
-  width: 6vw;
-  height: 6vh;
-  position: relative;
-  left: 100vw;
-}
-
-.cactus {
-  top: 290px;
-  background-image: url(assets/cactus.png);
-  background-size: 6vw 6vh;
-}
-
-.bigCactus {
-  width: 7vw;
-  height: 9vh;
-  top: 270px;
-  background-image: url(assets/bigCactus.png);
-  background-size: 7vw 9vh;
-}
-
-.bird {
-  width: 5vw;
-  height: 5vh;
-  top: 55vh;
-  background-image: url(assets/bird.png);
-  background-size: 5vw 5vh;
-}
-
-.flexDiv {
-  display: flex;
-}
-
-#star {
-  width: 5vw;
-  height: 7vh;
-  position: relative;
-  top: 68vh;
-  left: 100vw;
-  background-image: url(assets/star.png);
-  background-size: 5vw 7vh;
-}
-
-.starGlide {
-  animation: starGlide var(--animation-duration) infinite linear;
-}
-
-@keyframes starGlide {
-  0% {
-    left: 95vw;
-  }
-
-  100% {
-    left: 0vw;
-  }
-}
-
-.block {
-  animation: block var(--animation-duration) infinite linear;
-}
-
-@keyframes block {
-  0% {
-    left: 95vw;
-  }
-
-  100% {
-    left: 0vw;
-  }
-}
-
+  
 @keyframes jump {
   0% {
     top: 75vh;
@@ -163,5 +93,78 @@ p {
   
   100% {
     top: 75vh;
+  }
+}
+  
+.kicsi {
+  width: 6vw;
+  height: 6vh;
+  position: relative;
+  top: 290px;
+  left: 100vw;
+  background-image: url(assets/cactus.png);
+  background-size: 6vw 6vh;
+}
+
+.nagy{
+  width: 7vw;
+  height: 9vh;
+  position: relative;
+  top: 270px;
+  left: 100vw;
+  background-image: url(assets/bigCactus.png);
+  background-size: 7vw 9vh;
+}
+
+.lebego{
+  width: 5vw;
+  height: 5vh;
+  position: relative;
+  top: 55vh;
+  left: 100vw;
+  background-image: url(assets/bird.png);
+  background-size: 5vw 5vh;
+}
+
+
+.flexDiv{
+  display: flex;
+}
+
+#star{
+  width: 5vw;
+  height: 7vh;
+  position: relative;
+  top: 68vh;
+  left: 100vw;
+  background-image: url(assets/star.png);
+  background-size: 5vw 7vh;
+}
+
+.starGlide{
+  animation: starGlide var(--animation-duration) infinite linear;
+}
+
+@keyframes starGlide{
+  0% {
+    left: 95vw;
+  }
+  
+  100% {
+    left: 0vw;
+  }
+}
+
+.block {
+  animation: block var(--animation-duration) infinite linear;
+}
+
+@keyframes block {
+  0% {
+    left: 95vw;
+  }
+  
+  100% {
+    left: 0vw;
   }
 }

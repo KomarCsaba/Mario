@@ -42,6 +42,53 @@ function Obstacle() {
     return () => clearInterval(intervalId);
   }, []);
 
+  useEffect(() => {
+    const isAlive = setInterval(() => {
+      const playerTop = parseFloat(
+        getComputedStyle(playerRef.current).getPropertyValue("top")
+      );
+      const playerBottom = parseFloat(
+        getComputedStyle(playerRef.current).getPropertyValue("bottom")
+      );
+      const playerRight = parseFloat(
+        getComputedStyle(playerRef.current).getPropertyValue("right")
+      );
+  
+      const obstacleLeft = parseFloat(
+        getComputedStyle(obstacleRef.current).getPropertyValue("left")
+      );
+      const obstacleTop = parseFloat(
+        getComputedStyle(obstacleRef.current).getPropertyValue("top")
+      );
+      const obstacleBottom = parseFloat(
+        getComputedStyle(obstacleRef.current).getPropertyValue("bottom")
+      );
+  
+      if (obstacleRef.current.classList.contains("kicsi") || obstacleRef.current.classList.contains("nagy")) {
+        if (obstacleLeft <= 99 - playerRight && playerBottom >= 98 - obstacleTop) {
+          handleCollision();
+        }
+      }
+  
+      if (obstacleRef.current.classList.contains("lebego")) {
+        if (obstacleLeft <= 99 - playerRight && playerTop >= 98 - obstacleBottom) {
+          handleCollision();
+        }
+      }
+    }, 10);
+  
+    const handleCollision = () => {
+      // Handle collision logic here
+      if (score > highScore) {
+        setHighScore(score);
+      }
+      setEnd(true);
+      restartAnimation(); // Restart the game
+    };
+  
+    return () => clearInterval(isAlive);
+  }, [score, highScore]); // Include score and highScore as dependencies
+
   const jump = () => {
     if (!!playerRef.current && !playerRef.current.classList.contains("jump")) {
       playerRef.current.classList.add("jump");
