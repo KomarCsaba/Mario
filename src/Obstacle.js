@@ -2,16 +2,18 @@ import React, { useEffect, useRef, useState } from "react";
 import "./Obstacle.css";
 import EndDiv from "./End.js";
 
-function Obstacle() {
-  const obstacleType = ["kicsi", "nagy", "lebego"];
+const obstacleTypes = ["kicsi", "nagy", "lebego"];
+
+const Obstacle = () => {
   const playerRef = useRef();
   const obstacleRef = useRef();
   const starRef = useRef();
+
   const [score, setScore] = useState(0);
-  const [felteteTeljesult, setFeltetelTeljesult] = useState(false);
   const [highScore, setHighScore] = useState(0);
   const [end, setEnd] = useState(false);
   const [isCrouching, setIsCrouching] = useState(false);
+  const [feltetelTeljesult, setFeltetelTeljesult] = useState(false);
 
   useEffect(() => {
     createObstacle();
@@ -63,18 +65,9 @@ function Obstacle() {
         }
       }
     }, 10);
-  
-    const handleCollision = () => {
-      // Handle collision logic here
-      if (score > highScore) {
-        setHighScore(score);
-      }
-      setEnd(true);
-      restartAnimation(); // Restart the game
-    };
-  
+
     return () => clearInterval(isAlive);
-  }, [score, highScore]); // Include score and highScore as dependencies
+  }, [score, highScore]);
 
   const jump = () => {
     if (!!playerRef.current && !playerRef.current.classList.contains("jump")) {
@@ -96,8 +89,8 @@ function Obstacle() {
   };
 
   const createObstacle = () => {
-    const randomIndex = Math.floor(Math.random() * obstacleType.length);
-    const type = obstacleType[randomIndex];
+    const randomIndex = Math.floor(Math.random() * obstacleTypes.length);
+    const type = obstacleTypes[randomIndex];
     obstacleRef.current.classList.add(type);
   };
 
@@ -165,6 +158,36 @@ function Obstacle() {
     return ((starLeft < 99 && starLeft > 0 && playerBottom >= 98 - starTop));
   };
 
+  const checkCollision = () => {
+    const playerTop = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("top"));
+    const playerBottom = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("bottom"));
+    const playerRight = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("right"));
+
+    const obstacleLeft = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("left"));
+    const obstacleTop = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("top"));
+    const obstacleBottom = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("bottom"));
+
+    if (obstacleRef.current.classList.contains("kicsi") || obstacleRef.current.classList.contains("nagy")) {
+      if (obstacleLeft <= 99 - playerRight && playerBottom >= 98 - obstacleTop) {
+        handleCollision();
+      }
+    }
+
+    if (obstacleRef.current.classList.contains("lebego")) {
+      if (obstacleLeft <= 99 - playerRight && playerTop >= 98 - obstacleBottom) {
+        handleCollision();
+      }
+    }
+  };
+
+  const handleCollision = () => {
+    if (score > highScore) {
+      setHighScore(score);
+    }
+    setEnd(true);
+    restartAnimation();
+  };
+
   return (
     <div className="game">
       <div className="score">
@@ -176,20 +199,11 @@ function Obstacle() {
         <div className="flexDiv">
           <div ref={obstacleRef} />
           <div id="star" ref={starRef} />
-          {end && !felteteTeljesult && <EndDiv score={score} highScore={highScore} onRestart={restartGame} />}
+          {end && !feltetelTeljesult && <EndDiv score={score} highScore={highScore} onRestart={restartGame} />}
         </div>
       </div>
     </div>
   );
-}
-
-/*
-  -kellenek a képek
-  -méretre szabás
-  -guggolás
-  -több akadály
-  -gyorsulás ahogy nő a pontszám
-  -score ne változzon restart képernyőnél (stop animation metódus?!)
-*/
+};
 
 export default Obstacle;
