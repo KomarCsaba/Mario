@@ -25,13 +25,4 @@ const EndDiv = ({score, highScore, onRestart}) => {
     )
   };
 
-  export default EndDiv;
-  
-/*
-  -kellenek a képek
-  -méretre szabás
-  -guggolás
-  -több akadály
-  -gyorsulás ahogy nő a pontszám
-  -score ne változzon restart képernyőnél (stop animation metódus?!)
-*/
+export default EndDiv;
