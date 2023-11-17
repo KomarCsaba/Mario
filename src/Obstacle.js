@@ -115,10 +115,6 @@ const Obstacle = () => {
   const startAnimation = () => {
     createObstacle();
     obstacleRef.current.classList.add("block");
-
-    const animationDuration = `${5 - score * 0.5}s`;
-    document.documentElement.style.setProperty("--animation-duration", animationDuration);
-
     setTimeout(() => {
       starRef.current.classList.add("starGlide");
     }, 1000);
@@ -127,10 +123,6 @@ const Obstacle = () => {
   const restartAnimation = () => {
     obstacleRef.current.classList.remove("block");
     obstacleRef.current.classList.add("block");
-
-    const animationDuration = `${5 - score * 0.5}s`;
-    document.documentElement.style.setProperty("--animation-duration", animationDuration);
-
     setTimeout(() => {
       starRef.current.classList.add("starGlide");
     }, 1000);

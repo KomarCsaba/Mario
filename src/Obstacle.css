@@ -142,7 +142,7 @@ p {
 }
 
 .starGlide{
-  animation: starGlide var(--animation-duration) infinite linear;
+  animation: starGlide 5s infinite linear;
 }
 
 @keyframes starGlide{
@@ -156,7 +156,7 @@ p {
 }
 
 .block {
-  animation: block var(--animation-duration) infinite linear;
+  animation: block 5s infinite linear;
 }
 
 @keyframes block {
