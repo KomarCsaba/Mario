@@ -75,7 +75,13 @@ const Obstacle = () => {
       const obstacleTop = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("top"));
       const obstacleBottom = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("bottom"));
   
-      if (obstacleRef.current.classList.contains("kicsi") || obstacleRef.current.classList.contains("nagy")) {
+      if (obstacleRef.current.classList.contains("kicsi")) {
+        if (obstacleLeft <= 50 - playerRight && obstacleLeft > 0 && playerBottom <= 98 - obstacleTop) {
+          handleCollision();
+        }
+      }
+
+      if (obstacleRef.current.classList.contains("nagy")) {
         if (obstacleLeft <= 99 - playerRight && playerBottom >= 98 - obstacleTop) {
           handleCollision();
         }
