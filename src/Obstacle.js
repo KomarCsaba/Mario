@@ -181,6 +181,13 @@ const Obstacle = () => {
     paddingLeft: "5vw",
   }; 
 
+  const jatekter = {
+    backgroundImage: `url(${require('./assets/hatter.png')})`,
+    backgroundSize: "100vw 100vh",
+    width: "100vw",
+    height: "100vh",
+  };
+
   //idáig
   return (
     <div className="game" ref={gameRef}>
@@ -188,7 +195,7 @@ const Obstacle = () => {
         <p>Score: {score}</p>
         <p id="high">High Score: {highScore}</p>
       </div>
-      <div>
+      <div style={jatekter}>
         <div className={`player ${isCrouching ? "playerGuggolas" : ""}`} ref={playerRef} />
         <div className="flexDiv">
           <div ref={obstacleRef} className="block"/>

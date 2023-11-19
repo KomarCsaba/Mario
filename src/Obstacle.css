@@ -7,19 +7,17 @@ body {
 }
 
 .game {
-  width: 100vw; /*a képernyő 100%-a*/
-  height: 100vh; /*a képernyő 100%-a*/
+  width: 100vw;
+  height: 100vh;
   top: 0;
   left: 0;
-  background-image: url(assets/hatter.png);
-  background-size: 100vw 100vh;
 }
 
 .score {
   font-family: "Inconsolata";
   font-size: 30px;
-  height: 10vh; /*a képernyő 10%-a*/
-  line-height: 10vh; /*a képernyő 10%-a*/
+  height: 10vh;
+  line-height: 10vh;
   background-color: blueviolet;
   display: flex;
 }
