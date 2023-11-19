@@ -8,13 +8,13 @@ const EndDiv = ({score, highScore, onRestart}) => {
       position: "absolute",
       top: 0,
       left: 0,
-      width: "100%",
-      height: "100%",
+      width: "100vw",
+      height: "100vh",
       zIndex: "9999",
       textAlign: "center",
       fontFamily: "Inconsolata",
       backgroundImage: hatter,
-      backgroundSize: "100% 100%"
+      backgroundSize: "100vw 100vh"
     }
   
     console.log("lefutottam");

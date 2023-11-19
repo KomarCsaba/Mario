@@ -2,16 +2,17 @@ body {
   overflow-x: hidden;
   overflow-y: hidden;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .game {
-  width: 99vw; /*a képernyő 100%-a*/
-  height: 98vh; /*a képernyő 100%-a*/
-  border: 1px solid black;
-  margin: 0;
-  padding: 0;
+  width: 100vw; /*a képernyő 100%-a*/
+  height: 100vh; /*a képernyő 100%-a*/
+  top:0;
+  left: 0;
   background-image: url(assets/hatter.png);
-  background-size: 99vw 98vh;
+  background-size: 100vw 100vh;
 }
 
 .score {
@@ -108,7 +109,7 @@ p {
   height: 10vh;
   position: relative;
   top: 58vh;
-  left: 100vw;
+  left: 99vw;
   background-image: url(assets/fa2.png);
   background-size: 8vw 10vh;
 }
@@ -118,7 +119,7 @@ p {
   height: 15vh;
   position: relative;
   top: 55vh;
-  left: 100vw;
+  left: 99vw;
   background-image: url(assets/fa1.png);
   background-size: 10vw 15vh;
 }
@@ -128,7 +129,7 @@ p {
   height: 10vh;
   position: relative;
   top: 52vh;
-  left: 100vw;
+  left: 99vw;
   background-image: url(assets/felho.png);
   background-size: 10vw 10vh;
 }
@@ -143,7 +144,7 @@ p {
   height: 12vh;
   position: relative;
   top: 60vh;
-  left: 100vw;
+  left: 99vw;
   background-image: url(assets/fagyi.png);
   background-size: 9vw 12vh;
 }
