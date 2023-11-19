@@ -9,7 +9,7 @@ body {
 .game {
   width: 100vw; /*a képernyő 100%-a*/
   height: 100vh; /*a képernyő 100%-a*/
-  top:0;
+  top: 0;
   left: 0;
   background-image: url(assets/hatter.png);
   background-size: 100vw 100vh;
@@ -51,7 +51,7 @@ p {
   background-image: url(assets/baseform.gif);
   background-size: 10vw 14vh ;
   position: relative;
-  top: 80vh;
+  top: 76vh;
 }
   
 .jump {
@@ -109,7 +109,7 @@ p {
   height: 10vh;
   position: relative;
   top: 58vh;
-  left: 99vw;
+  left: 100vw;
   background-image: url(assets/fa2.png);
   background-size: 8vw 10vh;
 }
@@ -119,7 +119,7 @@ p {
   height: 15vh;
   position: relative;
   top: 55vh;
-  left: 99vw;
+  left: 100vw;
   background-image: url(assets/fa1.png);
   background-size: 10vw 15vh;
 }
@@ -129,7 +129,7 @@ p {
   height: 10vh;
   position: relative;
   top: 52vh;
-  left: 99vw;
+  left: 100vw;
   background-image: url(assets/felho.png);
   background-size: 10vw 10vh;
 }
@@ -144,7 +144,7 @@ p {
   height: 12vh;
   position: relative;
   top: 60vh;
-  left: 99vw;
+  left: 100vw;
   background-image: url(assets/fagyi.png);
   background-size: 9vw 12vh;
 }
@@ -155,11 +155,11 @@ p {
 
 @keyframes starGlide{
   0% {
-    left: 95vw;
+    left: 100vw;
   }
   
   100% {
-    left: 0vw;
+    left: -15vw;
   }
 }
 
@@ -169,10 +169,10 @@ p {
 
 @keyframes block {
   0% {
-    left: 95vw;
+    left: 100vw;
   }
   
   100% {
-    left: 0vw;
+    left: -5vw;
   }
 }

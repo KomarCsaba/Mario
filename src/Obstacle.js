@@ -78,7 +78,7 @@ const Obstacle = () => {
      
   
       if (obstacleRef.current.classList.contains("kicsi")) {
-        if (obstacleLeft <= 50 - playerRight && obstacleLeft > 0 && playerBottom <= 98 - obstacleTop) {
+        if (obstacleLeft >= 100 - playerRight && obstacleLeft > 0 && playerBottom <= 100 - obstacleTop) {
           console.log(parseFloat(getComputedStyle(gameRef.current).getPropertyValue("height")));
           console.log("playerbottom: ", playerBottom);
           console.log("obstacleTop: ", obstacleTop);
@@ -89,7 +89,7 @@ const Obstacle = () => {
       }
 
       if (obstacleRef.current.classList.contains("nagy")) {
-        if (obstacleLeft <= 99 - playerRight && playerBottom >= 98 - obstacleTop) {
+        if (obstacleLeft <= 99 - playerRight && playerBottom >= 100 - obstacleTop) {
           handleCollision();
         }
       }
@@ -176,10 +176,15 @@ const Obstacle = () => {
 
     return ((starLeft < 99 && starLeft > 0 && playerBottom >= 98 - starTop));
   };
+
+  const scoreStyle = {
+    paddingLeft: "5vw",
+  }; 
+
   //idáig
   return (
     <div className="game" ref={gameRef}>
-      <div className="score">
+      <div className="score" style={scoreStyle}>
         <p>Score: {score}</p>
         <p id="high">High Score: {highScore}</p>
       </div>

@@ -15,7 +15,7 @@ const EndDiv = ({score, highScore, onRestart}) => {
       fontFamily: "Inconsolata",
       backgroundImage: hatter,
       backgroundSize: "100vw 100vh"
-    }
+    };
 
     const buttonStyle = {
       backgroundColor: '#4CAF50', // Green background color
@@ -27,9 +27,7 @@ const EndDiv = ({score, highScore, onRestart}) => {
       boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // Box shadow for depth
       transition: 'background-color 0.3s ease-in-out', // Smooth color transition
     };
-  
-    console.log("lefutottam");
-  
+ 
     return (
       <div style = {divStyle}>
         <h1>score: {score}</h1>
