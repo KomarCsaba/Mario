@@ -48,7 +48,7 @@ p {
   width: 10vw;
   height: 14vh;
   background-image: url(assets/baseform.gif);
-  background-size: 10vw 14vh ;
+  background-size: 10vw 14vh;
   position: relative;
   top: 80vh;
 }
