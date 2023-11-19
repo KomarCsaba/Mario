@@ -17,8 +17,8 @@ body {
 .score {
   font-family: "Inconsolata";
   font-size: 30px;
-  height: 10vh; /*a div 10%-a*/
-  line-height: 10vh; /*a div 10%-a*/
+  height: 10vh; /*a képernyő 10%-a*/
+  line-height: 10vh; /*a képernyő 10%-a*/
   background-color: blueviolet;
   display: flex;
 }
@@ -48,7 +48,7 @@ p {
   width: 10vw;
   height: 14vh;
   background-image: url(assets/baseform.gif);
-  background-size: 10vw 14vh;
+  background-size: 10vw 14vh ;
   position: relative;
   top: 80vh;
 }
