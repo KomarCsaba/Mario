@@ -71,25 +71,37 @@ const Obstacle = () => {
       const playerTop = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("top"));
       const playerBottom = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("bottom"));
       const playerRight = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("right"));
+      const playerLeft = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("left"));
+      const playerWidth = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("width"));
+      const playerHeight = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("height"));
+
       const obstacleLeft = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("left"));
       const obstacleTop = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("top"));
       const obstacleBottom = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("bottom"));
+      const obstacleHeight = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("height"));
+      const obstacleWidth = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("width"));
 
+      console.log("obstacleLeft: ",obstacleLeft);
+      console.log("playerWidth: ",playerWidth);
+      console.log("playerBottom: ",playerBottom);
+      console.log("obstacleHeight: ",obstacleHeight);
+      console.log("");
      
   
       if (obstacleRef.current.classList.contains("kicsi")) {
-        if (obstacleLeft >= 100 - playerRight && obstacleLeft > 0 && playerBottom <= 100 - obstacleTop) {
-          console.log(parseFloat(getComputedStyle(gameRef.current).getPropertyValue("height")));
-          console.log("playerbottom: ", playerBottom);
-          console.log("obstacleTop: ", obstacleTop);
-          console.log("playerTop: ", playerTop);
-          console.log("obstacleBottom: ", obstacleBottom);
+        if (playerRight >= obstacleLeft + obstacleWidth ||
+          playerLeft + playerWidth <= obstacleLeft &&
+          playerTop <= obstacleTop + obstacleHeight ||
+          playerTop + playerHeight >= obstacleTop) {
           handleCollision();
         }
       }
 
       if (obstacleRef.current.classList.contains("nagy")) {
-        if (obstacleLeft <= 99 - playerRight && playerBottom >= 100 - obstacleTop) {
+        if (playerLeft < obstacleLeft + obstacleWidth &&
+          playerLeft + playerWidth > obstacleLeft &&
+          playerTop < obstacleTop + obstacleHeight &&
+          playerTop + playerHeight > obstacleTop) {
           handleCollision();
         }
       }
@@ -173,8 +185,10 @@ const Obstacle = () => {
     const starLeft = parseFloat(getComputedStyle(starRef.current).getPropertyValue("left"));
     const playerBottom = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("bottom"));
     const starTop = parseFloat(getComputedStyle(starRef.current).getPropertyValue("top"));
+    const playerWidth = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("width"));
+    
 
-    return ((starLeft < 99 && starLeft > 0 && playerBottom >= 98 - starTop));
+    return ((starLeft <= playerWidth));
   };
 
   const scoreStyle = {
