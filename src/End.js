@@ -18,14 +18,14 @@ const EndDiv = ({score, highScore, onRestart}) => {
     };
 
     const buttonStyle = {
-      backgroundColor: '#4CAF50', // Green background color
-      color: 'white',             // White text color
-      padding: '10px 20px',       // Padding
-      borderRadius: '8px',        // Rounded corners
-      border: 'none',             // No border
-      cursor: 'pointer',          // Cursor on hover
-      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // Box shadow for depth
-      transition: 'background-color 0.3s ease-in-out', // Smooth color transition
+      backgroundColor: '#4CAF50', 
+      color: 'white',             
+      padding: '10px 20px',       
+      borderRadius: '8px',       
+      border: 'none',             
+      cursor: 'pointer',          
+      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+      transition: 'background-color 0.3s ease-in-out',
     };
  
     return (
