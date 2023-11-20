@@ -164,7 +164,7 @@ const Obstacle = () => {
     return () => clearInterval(intervalId);
   }, []);
   const setupInterval = () => {
-    const intervalId = setInterval(handleCondition, 300);
+    const intervalId = setInterval(handleCondition, 600);
     return intervalId;
   };
   const handleCondition = () => {
@@ -215,13 +215,5 @@ const Obstacle = () => {
     </div>
   );
 };
-
-/*
-  -kellenek a képek
-  -méretre szabás
-  -guggolás
-  -gyorsulás ahogy nő a pont
-  -score ne változzon restart képernyőnél (stop animation metódus?!)
-*/
 
 export default Obstacle;
