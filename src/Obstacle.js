@@ -118,6 +118,7 @@ const Obstacle = () => {
 
   
   const handleCollision = () => {
+    stopAnimation();
     if (score > highScore) {
       setHighScore(score);
     }
@@ -155,7 +156,12 @@ const Obstacle = () => {
   };
 
   const stopAnimation = () => {
-    obstacleRef.current.classList.remove("block");
+    if (obstacleRef.current.classList.contains("block")) {
+      obstacleRef.current.classList.remove("block");
+    
+    if (starRef.current.classList.contains("starGlide")) {
+        starRef.current.classList.remove("starGlide");
+    }}
   };
 
   const restartGlide = () => {
