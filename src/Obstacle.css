@@ -63,39 +63,39 @@ p {
   }
 
   10% {
-    top: 63vh;
+    top: 62vh;
   }
 
   20% {
-    top: 56vh;
+    top: 54vh;
   }
   
   30% {
-    top: 49vh;
+    top: 46vh;
   }
 
   40% {
-    top: 42vh;
+    top: 38vh;
   }
   
   50% {
-    top: 35vh;
+    top: 30vh;
   }
 
   60% {
-    top: 42vh;
+    top: 38vh;
   }
 
   70% {
-    top: 49vh;
+    top: 46vh;
   }
   
   80% {
-    top: 56vh;
+    top: 54vh;
   }
 
   90% {
-    top: 63vh;
+    top: 62vh;
   }
   
   100% {
@@ -126,13 +126,13 @@ p {
 }
 
 .lebego{
-  width: 15vw;
+  width: 10vw;
   height: 10vh;
   position: relative;
-  bottom: -40vh;
+  bottom: -53vh;
   left: 100vw;
   background-image: url(assets/felho.png);
-  background-size: 15vw 10vh;
+  background-size: 10vw 10vh;
   border: 1px solid black;
 }
 
@@ -143,12 +143,12 @@ p {
 
 #star{
   width: 9vw;
-  height: 12vh;
+  height: 10vh;
   position: relative;
   top: 59vh;
   left: 100vw;
   background-image: url(assets/fagyi.png);
-  background-size: 9vw 12vh;
+  background-size: 9vw 10vh;
   border: 1px solid black;
 }
 

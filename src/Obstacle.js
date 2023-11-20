@@ -68,18 +68,10 @@ const Obstacle = () => {
 
   useEffect(() => {
     const isAlive = setInterval(() => {
-      const playerTop = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("top"));
       const playerBottom = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("bottom"));
       const playerRight = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("right"));
-      const playerLeft = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("left"));
-      const playerWidth = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("width"));
-      const playerHeight = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("height"));
-
       const obstacleLeft = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("left"));
-      const obstacleTop = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("top"));
-      const obstacleBottom = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("bottom"));
-      const obstacleHeight = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("height"));
-      const obstacleWidth = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("width"));     
+      const obstacleTop = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("top"));  
   
       if (obstacleRef.current.classList.contains("kicsi")) {
         if (obstacleLeft <= 100 - playerRight && Math.abs(playerBottom) >= obstacleTop) {
@@ -95,8 +87,6 @@ const Obstacle = () => {
   
       if (obstacleRef.current.classList.contains("lebego")) {
         if (obstacleLeft <= 100 - playerRight && !playerRef.current.classList.contains("playerGuggolas")) {
-          console.log(isCrouching);
-          console.log();
           handleCollision();
         }
       }
