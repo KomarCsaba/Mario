@@ -2,9 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import "./Obstacle.css";
 import EndDiv from "./End.js";
 
-const obstacleTypes = ["kicsi", "nagy", "lebego"];
-
 const Obstacle = () => {
+  const obstacleTypes = ["kicsi", "nagy", "lebego"];
   const playerRef = useRef();
   const obstacleRef = useRef();
   const starRef = useRef();
@@ -148,13 +147,12 @@ const Obstacle = () => {
     starRef.current.classList.add("starGlide");
   };
 
-  //Pontszerzes
   useEffect(() => {
     const intervalId = setupInterval();
     return () => clearInterval(intervalId);
   }, []);
   const setupInterval = () => {
-    const intervalId = setInterval(handleCondition, 300);
+    const intervalId = setInterval(handleCondition, 600);
     return intervalId;
   };
   const handleCondition = () => {
@@ -171,8 +169,6 @@ const Obstacle = () => {
     const playerBottom = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("bottom"));
     const starTop = parseFloat(getComputedStyle(starRef.current).getPropertyValue("top"));
     const playerRight = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("right"));
-    
-
     return (starLeft <= 100 - playerRight && Math.abs(playerBottom) >= starTop);
   };
 
@@ -187,7 +183,6 @@ const Obstacle = () => {
     height: "100vh",
   };
 
-  //idáig
   return (
     <div className="game" ref={gameRef}>
       <div className="score" style={scoreStyle}>
@@ -205,13 +200,5 @@ const Obstacle = () => {
     </div>
   );
 };
-
-/*
-  -kellenek a képek
-  -méretre szabás
-  -guggolás
-  -gyorsulás ahogy nő a pont
-  -score ne változzon restart képernyőnél (stop animation metódus?!)
-*/
 
 export default Obstacle;
