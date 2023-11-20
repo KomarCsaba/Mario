@@ -158,7 +158,6 @@ const Obstacle = () => {
     starRef.current.classList.add("starGlide");
   };
 
-  //Pontszerzes
   useEffect(() => {
     const intervalId = setupInterval();
     return () => clearInterval(intervalId);
@@ -195,7 +194,6 @@ const Obstacle = () => {
     height: "100vh",
   };
 
-  //idáig
   return (
     <div className="game" ref={gameRef}>
       <div className="score" style={scoreStyle}>
