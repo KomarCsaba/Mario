@@ -174,10 +174,10 @@ const Obstacle = () => {
     const starLeft = parseFloat(getComputedStyle(starRef.current).getPropertyValue("left"));
     const playerBottom = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("bottom"));
     const starTop = parseFloat(getComputedStyle(starRef.current).getPropertyValue("top"));
-    const playerWidth = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("width"));
+    const playerRight = parseFloat(getComputedStyle(playerRef.current).getPropertyValue("right"));
     
 
-    return ((starLeft <= playerWidth));
+    return (starLeft <= 100 - playerRight && Math.abs(playerBottom) >= starTop);
   };
 
   const scoreStyle = {

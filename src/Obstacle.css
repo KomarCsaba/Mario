@@ -145,10 +145,11 @@ p {
   width: 9vw;
   height: 12vh;
   position: relative;
-  top: 60vh;
+  top: 59vh;
   left: 100vw;
   background-image: url(assets/fagyi.png);
   background-size: 9vw 12vh;
+  border: 1px solid black;
 }
 
 .starGlide{
@@ -161,7 +162,7 @@ p {
   }
   
   100% {
-    left: -10vw;
+    left: -12vw;
   }
 }
 
