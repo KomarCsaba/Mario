@@ -2,9 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import "./Obstacle.css";
 import EndDiv from "./End.js";
 
-const obstacleTypes = ["kicsi", "nagy", "lebego"];
-
 const Obstacle = () => {
+  const obstacleTypes = ["kicsi", "nagy", "lebego"];
   const playerRef = useRef();
   const obstacleRef = useRef();
   const starRef = useRef();
