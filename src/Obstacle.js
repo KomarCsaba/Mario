@@ -94,7 +94,7 @@ const Obstacle = () => {
       }
   
       if (obstacleRef.current.classList.contains("lebego")) {
-        if (/*obstacleLeft <= 100 - playerRight &&*/ isCrouching == false) {
+        if (obstacleLeft <= 100 - playerRight && !playerRef.current.classList.contains("playerGuggolas")) {
           console.log(isCrouching);
           console.log();
           handleCollision();
