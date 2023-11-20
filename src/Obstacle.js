@@ -94,7 +94,7 @@ const Obstacle = () => {
       }
   
       if (obstacleRef.current.classList.contains("lebego")) {
-        if (/*obstacleLeft <= 100 - playerRight &&*/ isCrouching == true) {
+        if (obstacleLeft <= 100 - playerRight && !playerRef.current.classList.contains("playerGuggolas")) {
           console.log(isCrouching);
           console.log();
           handleCollision();
@@ -107,6 +107,7 @@ const Obstacle = () => {
 
   
   const handleCollision = () => {
+    stopAnimation();
     if (score > highScore) {
       setHighScore(score);
     }
@@ -144,7 +145,12 @@ const Obstacle = () => {
   };
 
   const stopAnimation = () => {
-    obstacleRef.current.classList.remove("block");
+    if (obstacleRef.current.classList.contains("block")) {
+      obstacleRef.current.classList.remove("block");
+    
+    if (starRef.current.classList.contains("starGlide")) {
+        starRef.current.classList.remove("starGlide");
+    }}
   };
 
   const restartGlide = () => {
