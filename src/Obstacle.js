@@ -79,35 +79,24 @@ const Obstacle = () => {
       const obstacleTop = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("top"));
       const obstacleBottom = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("bottom"));
       const obstacleHeight = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("height"));
-      const obstacleWidth = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("width"));
-
-      console.log("obstacleLeft: ",obstacleLeft);
-      console.log("playerWidth: ",playerWidth);
-      console.log("playerBottom: ",playerBottom);
-      console.log("obstacleHeight: ",obstacleHeight);
-      console.log("");
-     
+      const obstacleWidth = parseFloat(getComputedStyle(obstacleRef.current).getPropertyValue("width"));     
   
       if (obstacleRef.current.classList.contains("kicsi")) {
-        if (playerRight >= obstacleLeft + obstacleWidth ||
-          playerLeft + playerWidth <= obstacleLeft &&
-          playerTop <= obstacleTop + obstacleHeight ||
-          playerTop + playerHeight >= obstacleTop) {
+        if (obstacleLeft <= 100 - playerRight && Math.abs(playerBottom) >= obstacleTop) {
           handleCollision();
         }
       }
 
       if (obstacleRef.current.classList.contains("nagy")) {
-        if (playerLeft < obstacleLeft + obstacleWidth &&
-          playerLeft + playerWidth > obstacleLeft &&
-          playerTop < obstacleTop + obstacleHeight &&
-          playerTop + playerHeight > obstacleTop) {
+        if (obstacleLeft <= 100 - playerRight && Math.abs(playerBottom) >= obstacleTop) {
           handleCollision();
         }
       }
   
       if (obstacleRef.current.classList.contains("lebego")) {
-        if (obstacleLeft <= 99 - playerRight && playerTop >= 98 - obstacleBottom) {
+        if (/*obstacleLeft <= 100 - playerRight &&*/ isCrouching == true) {
+          console.log(isCrouching);
+          console.log();
           handleCollision();
         }
       }

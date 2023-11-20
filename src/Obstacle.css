@@ -41,6 +41,7 @@ p {
   background-size: 10vw 14vh ;
   position: relative;
   top: 70vh;
+  border: 1px solid black;
 }
 
 .playerGuggolas{
@@ -58,47 +59,47 @@ p {
   
 @keyframes jump {
   0% {
-    top: 75vh;
+    top: 70vh;
   }
 
   10% {
-    top: 68vh;
+    top: 63vh;
   }
 
   20% {
-    top: 61vh;
+    top: 56vh;
   }
   
   30% {
-    top: 54vh;
+    top: 49vh;
   }
 
   40% {
-    top: 47vh;
+    top: 42vh;
   }
   
   50% {
-    top: 40vh;
+    top: 35vh;
   }
 
   60% {
-    top: 47vh;
+    top: 42vh;
   }
 
   70% {
-    top: 54vh;
+    top: 49vh;
   }
   
   80% {
-    top: 61vh;
+    top: 56vh;
   }
 
   90% {
-    top: 68vh;
+    top: 63vh;
   }
   
   100% {
-    top: 75vh;
+    top: 70vh;
   }
 }
   
@@ -110,6 +111,7 @@ p {
   left: 100vw;
   background-image: url(assets/fa2.png);
   background-size: 8vw 10vh;
+  border: 1px solid black;
 }
 
 .nagy{
@@ -120,16 +122,18 @@ p {
   left: 100vw;
   background-image: url(assets/fa1.png);
   background-size: 10vw 15vh;
+  border: 1px solid black;
 }
 
 .lebego{
-  width: 10vw;
+  width: 15vw;
   height: 10vh;
   position: relative;
-  top: 52vh;
+  bottom: -40vh;
   left: 100vw;
   background-image: url(assets/felho.png);
-  background-size: 10vw 10vh;
+  background-size: 15vw 10vh;
+  border: 1px solid black;
 }
 
 
@@ -148,7 +152,7 @@ p {
 }
 
 .starGlide{
-  animation: starGlide 5s infinite linear;
+  animation: starGlide 4s infinite linear;
 }
 
 @keyframes starGlide{
@@ -162,7 +166,7 @@ p {
 }
 
 .block {
-  animation: block 5s infinite linear;
+  animation: block 4s infinite linear;
 }
 
 @keyframes block {
